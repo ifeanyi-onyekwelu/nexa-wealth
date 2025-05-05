@@ -1,0 +1,850 @@
+{% extends './shared/_base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<section class="min-h-fit py-16 px-6 md:px-24 bg-gradient-to-b bg-[#092912]">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <!-- Left Content -->
+        <div class="w-full md:w-1/2 space-y-8" data-aos="fade-up" data-aos-delay="100">
+            <!-- Crypto Ticker Widget - Improved -->
+            <div class="bg-[#1D2330] rounded-lg border border-blue-500/30 p-1 shadow-lg overflow-hidden"
+                data-aos="fade-in" data-aos-delay="200">
+                <iframe
+                    src="https://widget.coinlib.io/widget?type=horizontal_v2&theme=dark&pref_coin_id=1505&invert_hover=no"
+                    width="100%" height="36px" scrolling="no" frameborder="0" class="rounded-t-lg"></iframe>
+                <div class="bg-[#262B38] px-3 py-2 text-xs text-gray-400 text-right">
+                    <a href="https://coinlib.io" target="_blank"
+                        class="text-green-400 hover:text-blue-300 transition-colors">
+                        LIVE CRYPTO PRICES
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Text -->
+            <div class="space-y-6" data-aos="fade-up" data-aos-delay="300">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                    Invest <span id="typewriter"
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-400"></span><br>
+                    With <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Nova
+                        Wealth
+                        Trading</span>
+                </h1>
+
+                <p class="text-lg text-gray-300 leading-relaxed max-w-lg">
+                    A global full-reserve equity investment platform built on decentralized ledger technology.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4" data-aos="zoom-in" data-aos-delay="400">
+                    <a href="{% url 'account_signup' %}"
+                        class="px-8 py-3 rounded-full bg-gradient-to-r from-green-600 to-blue-700 text-white font-medium hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 text-center">
+                        Get Started Now
+                    </a>
+                    <a href="{% url 'public:about' %}"
+                        class="px-8 py-3 rounded-full border border-blue-500 text-green-400 hover:bg-blue-500/10 transition-all duration-300 text-center">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+</style>
+
+<script>
+    // Typewriter effect
+    document.addEventListener('DOMContentLoaded', function () {
+        const words = ["Securely", "Smartly", "Globally", "Easily"];
+        const typewriter = document.getElementById('typewriter');
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 100;
+
+        function type() {
+            const currentWord = words[wordIndex];
+
+            if (isDeleting) {
+                typewriter.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 50;
+            } else {
+                typewriter.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                isDeleting = true;
+                typingSpeed = 1500; // Pause at end of word
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typingSpeed = 500; // Pause before typing next word
+            }
+
+            setTimeout(type, typingSpeed);
+        }
+
+        setTimeout(type, 1000); // Start typing after 1 second
+    });
+</script>
+
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-[#092912]">
+    <div class="max-w-7xl mx-auto space-y-12 lg:space-y-16">
+        <!-- Heading Section -->
+        <div class="max-w-3xl mx-auto text-center space-y-6" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-4xl font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+                Why Choose Nova Wealth
+            </h2>
+            <p class="text-xl text-gray-300 font-medium">
+                We Set the Pace, Others Follow
+            </p>
+            <p class="text-gray-400 leading-relaxed md:text-lg">
+                As high-conviction investors, we focus on undervalued opportunities ignored by mainstream markets.
+                Our strategy capitalizes on market inefficiencies to deliver sustainable long-term growth.
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-12">
+            <!-- Left Features -->
+            <div class="space-y-8 lg:space-y-10" data-aos="fade-right" data-aos-delay="200">
+                <div class="feature-card group p-3">
+                    <h5 class="text-lg font-semibold mb-3 text-green-400">Asset Management</h5>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                        Comprehensive advisory services helping clients develop and access strategic investment
+                        alternatives tailored to their goals.
+                    </p>
+                </div>
+
+                <div class="feature-card group p-3">
+                    <h5 class="text-lg font-semibold mb-3 text-green-400">Mutual Funds</h5>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                        Expert-managed portfolios leveraging market insights to grow your wealth consistently.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Center Image -->
+            <div class="flex items-center justify-center lg:py-4" data-aos="zoom-in" data-aos-delay="300">
+                <div class="relative w-full max-w-xs lg:max-w-md transform transition duration-500 hover:scale-105">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-blue-500 to-transparent opacity-20 rounded-xl blur-lg">
+                    </div>
+                    <img src="{% static 'images/tether-home.png' %}" alt="Investment strategies"
+                        class="rounded-xl shadow-2xl border-2 border-blue-500/30 relative z-10 w-full">
+                </div>
+            </div>
+
+            <!-- Right Features -->
+            <div class="space-y-8 lg:space-y-10" data-aos="fade-left" data-aos-delay="200">
+                <div class="feature-card group p-3">
+                    <h5 class="text-lg font-semibold mb-3 text-green-400">Wealth Management</h5>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                        Multi-generational wealth preservation strategies combining innovative solutions
+                        with time-tested financial principles.
+                    </p>
+                </div>
+
+                <div class="feature-card group p-3">
+                    <h5 class="text-lg font-semibold mb-3 text-green-400">Brokerage Account</h5>
+                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                        Secure trading environment with institutional-grade safeguards and guaranteed returns
+                        on qualified investments.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .feature-card {
+        @apply p-6 rounded-xl transition-all duration-300;
+        background: linear-gradient(145deg, rgba(18, 22, 34, 1) 0%, rgba(32, 38, 55, 0.5) 100%);
+        border: 1px solid rgba(99, 102, 241, 0.15);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(99, 102, 241, 0.3);
+        box-shadow: 0 10px 30px rgba(0, 79, 255, 0.1);
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const countElements = document.querySelectorAll('.countup-animation');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const originalText = element.innerText;
+                    const isCurrency = element.parentElement.textContent.includes('$');
+                    const hasPlus = element.parentElement.textContent.includes('+');
+                    const target = parseFloat(originalText.replace(/[^0-9.]/g, ''));
+
+                    let current = 0;
+                    const duration = 2000; // Animation duration in ms
+                    const startTime = Date.now();
+
+                    const animate = () => {
+                        const elapsed = Date.now() - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        current = Math.floor(progress * target);
+
+                        // Format number with commas
+                        element.innerText = current.toLocaleString();
+
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        } else {
+                            // Restore original formatting
+                            element.innerText = originalText;
+                            if (isCurrency) element.parentElement.prepend('$');
+                            if (hasPlus) element.parentElement.append('+');
+                        }
+                    };
+
+                    // Clear existing content and start animation
+                    element.innerText = '0';
+                    requestAnimationFrame(animate);
+                    observer.unobserve(element);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Add to existing HTML section
+        document.querySelectorAll('[data-countup]').forEach(element => {
+            element.classList.add('countup-animation');
+            observer.observe(element);
+        });
+    });
+</script>
+
+<section class="border-t-2 border-blue-700 py-16 bg-gradient-to-b bg-[#092912] px-6 md:px-24" data-aos="fade-up">
+    <div class="container mx-auto space-y-12">
+        <!-- Header Section -->
+        <div class="max-w-2xl mx-auto text-center space-y-6" data-aos="fade-up">
+            <h1 class="text-5xl font-bold bg-gradient-to-r from-green-400 to-purple-500 bg-clip-text text-transparent">
+                Performance Metrics
+            </h1>
+            <p class="text-lg text-gray-300 leading-relaxed md:px-16">
+                Nova Wealth delivered exceptional results with 132% annual returns, soaring to 249.85% for monthly
+                compounded investments.
+                These gains were achieved amidst the unprecedented challenges of the COVID-19 global economic crisis.
+            </p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 group">
+            <!-- Masternodes Card -->
+            <div class="bg-[#1A2030] rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-blue-500/20 border border-transparent"
+                data-aos="zoom-in">
+                <div class="space-y-4 text-center">
+                    <div class="inline-block p-4 rounded-full bg-blue-500/10">
+                        <!-- Icon -->
+                        ...
+                    </div>
+                    <h3
+                        class="text-4xl font-bold bg-gradient-to-r from-green-400 to-blue-300 bg-clip-text text-transparent">
+                        <span data-countup>7600</span>
+                    </h3>
+                    <p class="text-gray-400 font-medium">Operational Masternodes</p>
+                </div>
+            </div>
+
+            <!-- Deposits Card -->
+            <div class="bg-[#1A2030] rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-purple-500/20 border border-transparent"
+                data-aos="zoom-in" data-aos-delay="200">
+                <div class="space-y-4 text-center">
+                    <div class="inline-block p-4 rounded-full bg-purple-500/10">
+                        <!-- Icon -->
+                        ...
+                    </div>
+                    <h3
+                        class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-300 bg-clip-text text-transparent">
+                        $<span data-countup>3,294,582</span>
+                    </h3>
+                    <p class="text-gray-400 font-medium">Total Assets Managed</p>
+                    <p class="text-sm text-green-400">Weekly Updated</p>
+                </div>
+            </div>
+
+            <!-- Users Card -->
+            <div class="bg-[#1A2030] rounded-xl p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-green-500/20 border border-transparent"
+                data-aos="zoom-in" data-aos-delay="400">
+                <div class="space-y-4 text-center">
+                    <div class="inline-block p-4 rounded-full bg-green-500/10">
+                        <!-- Icon -->
+                        ...
+                    </div>
+                    <h3
+                        class="text-4xl font-bold bg-gradient-to-r from-green-400 to-cyan-300 bg-clip-text text-transparent">
+                        <span data-countup>32,012</span>+
+                    </h3>
+                    <p class="text-gray-400 font-medium">Active Community Members</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Widget -->
+        <div class="mt-12 max-w-6xl mx-auto rounded-xl overflow-hidden shadow-2xl" data-aos="fade-up">
+            <div id="coinmarketcap-widget-coin-price-block" coins="1,1027,825,1839,5426,2010,3408" currency="USD"
+                theme="dark" transparent="true" show-symbol-logo="true"></div>
+        </div>
+    </div>
+</section>
+
+<section class="border-t-2 border-blue-700 relative py-16 bg-[#1A2030] px-6 md:px-24">
+    <div class="container mx-auto px-6 p-7">
+        <div class="flex flex-col md:flex-row items-center justify-center space-x-5">
+            <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                <div class="text-white">
+                    <h2 class="text-3xl font-bold mb-4">About Nova Wealth</h2>
+                    <p class="leading-relaxed">
+                        Nova Wealth was created in 2009 with the sole purpose of ensuring that everyone has an
+                        insight on investments and has made sure that anyone that crosses our path has a genuine
+                        encounter
+                        with the investment market. Our aim is to help others achieve their aim in life. We saw the
+                        opportunity to help others and took it, and we are passionate about it.
+                    </p>
+                    <p class="leading-relaxed mt-4">
+                        Investments are life-savers and shouldn't be rejected by anyone. You’re helping yourself and
+                        no one else.
+                        This answers the question, “Why do I invest?” A strong reason is having something in store for a
+                        rainy day or making a life-changing decision requiring financial support. This is where we come
+                        in—helping
+                        you invest in securities that yield dividends in a short period. We believe in empowering both
+                        novice and
+                        expert investors.
+                    </p>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+                <iframe class="w-full h-64 md:h-80" src="https://www.youtube.com/embed/tuUO-Q4_b5c"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="py-16 bg-gradient-to-b from-gray-900 to-gray-800 px-4 sm:px-6">
+    <!-- <div id="plans" class="scroll-mt-20"></div> -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <span
+                class="inline-block px-3 py-1 text-sm font-medium bg-blue-900 text-blue-300 rounded-full mb-4">Investment
+                Plans</span>
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Tailored Trading Packages</h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Choose the perfect investment strategy for your financial goals.
+                <span class="text-yellow-400 font-medium">All plans support compounding.</span>
+            </p>
+        </div>
+
+        <!-- Plans Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            {% for plan in plans %}
+            <div
+                class="relative group rounded-2xl bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20">
+                <!-- Popular Badge (example for a specific plan) -->
+                {% if forloop.counter == 2 %}
+                <div
+                    class="absolute top-4 right-4 bg-yellow-500 text-gray-900 text-xs font-bold px-3 py-1 rounded-full z-30">
+                    MOST POPULAR
+                </div>
+                {% endif %}
+
+                <!-- Plan Content -->
+                <div class="p-8 relative z-20">
+                    <!-- Plan Name -->
+                    <h3 class="text-2xl font-bold text-white mb-2">{{ plan.name }}</h3>
+                    <p class="text-green-400 mb-6">${{ plan.min_amount|floatformat:2|intcomma }} -
+                        ${{ plan.max_amount|floatformat:2|intcomma }}</p>
+
+                    <!-- ROI Badge -->
+                    <div
+                        class="bg-blue-900/50 border border-blue-700 text-blue-300 inline-block px-4 py-2 rounded-full mb-6">
+                        <span class="font-bold text-white">{{ plan.daily_profit_percentage }}%</span> Daily Return
+                    </div>
+
+                    <!-- Features List -->
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Compounding available</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">{{ plan.duration_value }} {{ plan.duration_unit|lower }}
+                                duration</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">24/7 monitoring</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-300">Instant withdrawals</span>
+                        </li>
+                    </ul>
+
+                    <!-- Invest Button -->
+                    <a href="{% url 'user:invest' plan.id %}"
+                        class="block w-full bg-gradient-to-r from-green-600 to-blue-500 hover:from-blue-500 hover:to-green-400 text-white text-center font-medium py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:-translate-y-1">
+                        Invest Now
+                        <svg class="w-4 h-4 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Hover Effect Background -->
+                <div
+                    class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="mt-12 text-center text-gray-500 text-sm max-w-3xl mx-auto">
+            <p>Past performance is not indicative of future results. All investments carry risk. Please read our <a
+                    href="#" class="text-green-400 hover:underline">risk disclosure</a> before investing.</p>
+        </div>
+    </div>
+</section>
+
+<!-- <section class="py-16 bg-gradient-to-b from-gray-50 to-white px-4 sm:px-6">
+    <div id="plans" class="scroll-mt-20"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <span
+                class="inline-block px-4 py-1 text-sm font-medium bg-[#FFF5ED] text-[#FE7E23] rounded-full mb-4">STAKING
+                PLATFORM</span>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Simple & Transparent Staking</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                At Nova Wealth Staking, we believe in <span class="text-[#FE7E23] font-medium">simplicity</span>,
+                <span class="text-[#FE7E23] font-medium">transparency</span>, and
+                <span class="text-[#FE7E23] font-medium">value</span>. Our plans are designed to maximize earnings for
+                all investors.
+            </p>
+        </div>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div
+                class="relative group overflow-hidden rounded-2xl bg-white border border-[#FE7E23]/20 hover:border-[#FE7E23]/50 transition-all duration-300 shadow-lg hover:shadow-[#FE7E23]/10">
+
+                <div
+                    class="absolute top-4 right-4 bg-[#FE7E23] text-white text-xs font-bold px-3 py-1 rounded-full z-10">
+                    HOT
+                </div>
+
+
+                <div class="p-8 pb-0">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900">FETCH.AI</h3>
+                            <p class="text-[#FE7E23] text-sm">Artificial Intelligence Staking</p>
+                        </div>
+                        <div class="bg-[#FFF5ED] text-[#FE7E23] px-3 py-1 rounded-full text-sm font-bold">14 Days</div>
+                    </div>
+
+
+                    <div
+                        class="bg-[#FFF5ED] border border-[#FE7E23]/30 text-[#FE7E23] inline-flex items-center px-4 py-2 rounded-full mb-6">
+                        <span class="font-bold">1.3%</span>
+                        <span class="ml-2 text-sm">Daily Interest</span>
+                    </div>
+                </div>
+
+
+                <div class="p-8 pt-0">
+
+                    <div class="mb-6">
+                        <h4 class="text-sm font-medium text-gray-500 mb-1">Investment Range</h4>
+                        <p class="text-lg font-semibold text-gray-900">$100 - $100,000</p>
+                    </div>
+
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-[#FE7E23] mt-0.5 mr-3 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Automated Yield Optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-[#FE7E23] mt-0.5 mr-3 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">Daily Earnings Tracking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-[#FE7E23] mt-0.5 mr-3 flex-shrink-0" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span class="text-gray-700">AI Managed Risk Minimization</span>
+                        </li>
+                    </ul>
+
+
+                    <div class="mb-8">
+                        <h4 class="text-sm font-medium text-gray-500 mb-1">Total Return</h4>
+                        <p class="text-xl font-bold text-gray-900">18.2% + Capital</p>
+                    </div>
+
+
+                    <a href="#"
+                        class="block w-full bg-gradient-to-r from-[#FE7E23] to-[#FF9A56] hover:from-[#FF9A56] hover:to-[#FE7E23] text-white text-center font-medium py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-[1.02] shadow-md hover:shadow-[#FE7E23]/30">
+                        Invest Now
+                        <svg class="w-4 h-4 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+
+
+                    <div class="mt-4 text-center">
+                        <a href="#" class="text-xs text-[#FE7E23] hover:underline flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Terms & Policies
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="mt-12 text-center text-gray-500 text-sm max-w-3xl mx-auto">
+            <p>APY is calculated based on current market conditions. Past performance is not indicative of future
+                results.</p>
+        </div>
+    </div>
+</section> -->
+
+<section class="bg-[#092912] py-16 border-t-2 border-green-600 px-6 md:px-24">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-white">What Our Clients Say</h2>
+        <p class="text-gray-400 mt-2">Real stories from our happy investors.</p>
+
+        <div class="mt-10 owl-carousel owl-theme">
+            <!-- Testimonial 1 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto">
+                <p class="text-gray-700 italic">"The best investment platform I've encountered so far. I've invested
+                    in
+                    a number of companies platforms in the past years and this has been the best I've experienced
+                    with a
+                    very good Return Of Investment and swift, effortless withdrawals also with good referral
+                    commissions. Also their support team is very efficient and reliable."</p>
+                <div class="flex items-center mt-4">
+                    <div class="flex items-center w-1/2 md:w-full justify-center">
+                        <img src="{% static 'images/testimonials-1.jpg' %}"
+                            class="w-5 aspect-square object-cover rounded-full" alt="Client 1">
+                    </div>
+                    <div class="ml-3">
+                        <h4 class="text-lg font-semibold text-gray-900">George Clark</h4>
+                        <p class="text-gray-500 text-sm">Engineer</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto">
+                <p class="text-gray-700 italic">"As an Entrepreneur, I come across a lot of opportunities. Many are
+                    fraud while Few are legit and do what they preach but Nova Wealth Firm has a solid business
+                    model that is tapping an unknown market and analytics and past performance showed me that it's a
+                    valid opportunity. Now the only weak point as with every legit operation is strong and
+                    dependable
+                    management. I've known the decision-makers behind Nova Wealth Firm for quite some time from
+                    past different ventures and I can credit them with honesty and a solid moral compass."</p>
+                <div class="flex items-center mt-4">
+                    <div class="flex items-center w-1/2 md:w-full justify-center">
+                        <img src="{% static 'images/testimonials-2.jpg' %}"
+                            class="w-5 aspect-square object-cover rounded-full" alt="Client 2">
+                    </div>
+                    <div class="w-1/2">
+                        <h4 class="text-lg font-semibold text-gray-900">Victor C.</h4>
+                        <p class="text-gray-500 text-sm">Opportunist</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto">
+                <p class="text-gray-700 italic">"Quality service ever had. My money keep increasing despite the fact
+                    that I am no professional trader. Interestingly the referral commssion becomes another great way
+                    of
+                    earning more with Nova Wealth."</p>
+                <div class="flex items-center mt-4">
+                    <div class="flex items-center w-1/2 md:w-full justify-center">
+                        <img src="{% static 'images/testimonials-3.jpg' %}"
+                            class="w-5 aspect-square object-cover rounded-full" alt="Client 3">
+                    </div>
+                    <div class="ml-3">
+                        <h4 class="text-lg font-semibold text-gray-900">Leeno stark</h4>
+                        <p class="text-gray-500 text-sm">Entrepreneur</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto">
+                <p class="text-gray-700 italic">"Never heard of Masternoding before. It turned out to be a total
+                    no-brainer, a secret, and a very lucrative. Thought the best time to start with Nova Wealth is now.
+                    It
+                    have been awesome using them since the bull run of bitcoin market"</p>
+                <div class="flex items-center mt-4">
+                    <div class="flex items-center w-1/2 md:w-full justify-center">
+                        <img src="{% static 'images/testimonials-4.jpg' %}"
+                            class="w-5 aspect-square object-cover rounded-full" alt="Client 3">
+                    </div>
+                    <div class="ml-3">
+                        <h4 class="text-lg font-semibold text-gray-900">Luise yash</h4>
+                        <p class="text-gray-500 text-sm">Business Man</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto">
+                <p class="text-gray-700 italic">"As a fresh new single mommy of a young demanding boy I needed to
+                    quit
+                    my job in logistics to become a full-time mother and it is truly full-time watching over the
+                    little
+                    boy it's really a blessing that I found Nova Wealth Firm about two year ago now. Despite
+                    cryptocurrency always fluctuating up and down and the Coronavirus wreaking havoc on the global
+                    economy (and my ex colleges being either fired or sent home worrying if they have a job
+                    tomorrow)
+                    they have continued to provide impeccable results in a transparent and efficient manner. I'm
+                    very
+                    happy and thanks to Nova Wealth Firm "independent" young mom."</p>
+                <div class="flex items-center mt-4">
+                    <div class="flex items-center w-1/2 md:w-full justify-center">
+                        <img src="{% static 'images/testimonials-6.jpg' %}" class="w-5 object-cover rounded-full"
+                            alt="Client 3">
+                    </div>
+                    <div class="ml-3">
+                        <h4 class="text-lg font-semibold text-gray-900">Nancy Griffin</h4>
+                        <p class="text-gray-500 text-sm">Nursing mum</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-[#092912] py-16 border-t-2 border-green-600 px-6 md:px-24">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-white">Masterminds Behind Nova Wealth</h2>
+        <p class="text-gray-400 mt-2">Team that works together with a common purpose!</p>
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            <!-- Team Member 1 -->
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <img src="{% static 'images/mastermind-1.jpg'%}" alt="John D" class="w-full rounded-lg">
+                <h3 class="text-white font-bold text-xl mt-4">Gleneda wood</h3>
+                <p class="text-gray-400">Chief Financial Officer</p>
+            </div>
+            <!-- Team Member 2 -->
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <img src="{% static 'images/mastermind-2.jpg'%}" alt="George R" class="w-full rounded-lg">
+                <h3 class="text-white font-bold text-xl mt-4">Mike Gallo</h3>
+                <p class="text-gray-400">Co-Founder</p>
+            </div>
+            <!-- Team Member 3 -->
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <img src="{% static 'images/mastermind-3.jpg'%}" alt="Aiguo C" class="w-full rounded-lg">
+                <h3 class="text-white font-bold text-xl mt-4">Nunzia</h3>
+                <p class="text-gray-400">Chief Executive Officer</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-[#092912] py-16 relative h-full px-6 md:px-24">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold text-white">Top investors on Nova Wealth</h2>
+        <p class="text-gray-400 mt-2">Top people who trust and believe in our system.</p>
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8 px-4 relative">
+            <!-- Investor 1 -->
+            <div class="relative">
+                <img src="{% static 'images/investor-1.jpg'%}" alt="Ephraim Jackson" class="w-full rounded-lg">
+                <div
+                    class="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-lg w-3/4">
+                    <h3 class="text-gray-900 font-bold text-lg">Dr baylon</h3>
+                    <p class="text-gray-600">Total Commitment:</p>
+                    <p class="text-purple-600 font-bold">$250,000</p>
+                </div>
+            </div>
+            <!-- Investor 2 -->
+            <div class="relative">
+                <img src="{% static 'images/investor-3.jpg'%}" alt="Rajash" class="w-full rounded-lg">
+                <div
+                    class="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-lg w-3/4">
+                    <h3 class="text-gray-900 font-bold text-lg">Ronald</h3>
+                    <p class="text-gray-600">Total Commitment:</p>
+                    <p class="text-purple-600 font-bold">$325,000</p>
+                </div>
+            </div>
+            <!-- Investor 3 -->
+            <div class="relative">
+                <img src="{% static 'images/investor-2.jpg'%}" alt="McKenzie" class="w-full rounded-lg">
+                <div
+                    class="absolute bottom-0 left-1/2 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-lg w-3/4">
+                    <h3 class="text-gray-900 font-bold text-lg">Allen Maxwell</h3>
+                    <p class="text-gray-600">Total Commitment:</p>
+                    <p class="text-purple-600 font-bold">$135,000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Join Us Section -->
+<section
+    class="relative bg-gradient-to-br from-blue-900/80 to-[#0B0F1F] py-16 md:py-24 px-6 text-center overflow-hidden">
+    <!-- Animated background elements -->
+    <div class="absolute inset-0 overflow-hidden opacity-20">
+        <div class="absolute top-0 left-1/4 w-32 h-32 rounded-full bg-blue-500 filter blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/3 w-40 h-40 rounded-full bg-purple-500 filter blur-3xl"></div>
+    </div>
+
+    <div class="relative max-w-3xl mx-auto space-y-6">
+        <h1
+            class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-cyan-300 bg-clip-text text-transparent">
+            Join Us Today
+        </h1>
+        <p class="text-lg text-gray-300 leading-relaxed">
+            Open a free account (zero commission) and start earning passive income through this untapped opportunity.
+        </p>
+        <div class="pt-4">
+            <a href="{% url 'account_signup' %}"
+                class="inline-block px-8 py-3 rounded-full text-white font-medium bg-gradient-to-r from-blue-500 to-green-600 hover:from-green-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+                Sign Up Free
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Payment Methods Section -->
+<section class="bg-[#0B0F1F] text-white py-16 border-t border-b border-blue-900/50">
+    <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center space-y-3">
+            <h2
+                class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-cyan-300 bg-clip-text text-transparent">
+                Accepted Payment Methods
+            </h2>
+            <p class="text-blue-300/80 text-sm md:text-base">
+                Below are the payment methods we currently accept. More options coming soon!
+            </p>
+        </div>
+
+        <!-- Payment Methods Grid -->
+        <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+            <div
+                class="bg-[#10131E] rounded-xl p-6 flex items-center justify-center border border-blue-900/30 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+                <img src="{% static 'images/perfectmoney1.png' %}"
+                    class="h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                    alt="Perfect Money">
+            </div>
+            <div
+                class="bg-[#10131E] rounded-xl p-6 flex items-center justify-center border border-blue-900/30 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+                <img src="{% static 'images/bit-coin.jpeg' %}"
+                    class="h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300" alt="Bitcoin">
+            </div>
+            <div
+                class="bg-[#10131E] rounded-xl p-6 flex items-center justify-center border border-blue-900/30 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+                <img src="{% static 'images/eth.jpeg' %}"
+                    class="h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300" alt="Ethereum">
+            </div>
+            <div
+                class="bg-[#10131E] rounded-xl p-6 flex items-center justify-center border border-blue-900/30 hover:border-blue-500/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+                <img src="{% static 'images/ddg.jpeg' %}"
+                    class="h-12 object-contain grayscale hover:grayscale-0 transition-all duration-300" alt="Dogecoin">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="bg-gradient-to-b from-[#0B0F1F] to-[#070A17] py-16 px-6">
+    <div class="max-w-4xl mx-auto text-center space-y-8">
+        <div class="space-y-3">
+            <h2
+                class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-cyan-300 bg-clip-text text-transparent">
+                Stay Updated
+            </h2>
+            <p class="text-blue-300/80 text-sm md:text-base">
+                Join our newsletter and be the first to get daily updates on all offers!
+            </p>
+        </div>
+
+        <div class="relative max-w-md mx-auto">
+            <div
+                class="relative flex items-center bg-[#10131E] rounded-full border border-blue-900/50 focus-within:border-blue-500 transition-all duration-300 overflow-hidden">
+                <input type="email" placeholder="Enter your email"
+                    class="w-full px-6 py-3 bg-transparent text-white placeholder-blue-300/50 outline-none">
+                <button
+                    class="absolute right-1 top-1 bottom-1 px-6 rounded-full bg-gradient-to-r from-blue-500 to-green-600 text-white font-medium hover:from-green-600 hover:to-blue-700 transition-all duration-300 shadow-md">
+                    Subscribe
+                </button>
+            </div>
+            <p class="mt-3 text-xs text-blue-300/50">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}

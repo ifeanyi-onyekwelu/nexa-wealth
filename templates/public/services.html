@@ -1,0 +1,252 @@
+{% extends './shared/_base.html' %}
+{% load static %}
+
+{% block title %}Investment Services - Nova Wealth{% endblock title %}
+
+{% block content %}
+<!-- Services Hero Section -->
+<header class="relative bg-gradient-to-br from-blue-900 to-gray-900 py-24">
+    <div class="absolute inset-0 bg-[url('{% static 'images/services-bg.jpg' %}')] bg-cover bg-center opacity-20"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center space-y-6">
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                Strategic <span class="text-green-400">Wealth Solutions</span>
+            </h1>
+            <nav aria-label="Breadcrumb">
+                <ol class="flex justify-center items-center space-x-2 text-sm font-medium text-gray-300">
+                    <li>
+                        <a href="{% url 'public:home' %}"
+                            class="flex items-center hover:text-green-400 transition-colors">
+                            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                            </svg>
+                            Home
+                        </a>
+                    </li>
+                    <li class="text-gray-500">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </li>
+                    <li class="text-gray-400" aria-current="page">Services</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Services Grid Section -->
+<section class="py-16 bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-8 xl:gap-12">
+            <!-- Service Card 1 -->
+            <div class="service-card group">
+                <div class="icon-box bg-blue-900/30">
+                    <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-6">Asset Management</h3>
+                <p class="text-gray-300 mt-3">Professional management of securities and assets to meet specified
+                    investment goals</p>
+                <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Portfolio diversification
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Risk-adjusted returns
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Institutional-grade strategies
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Service Card 2 -->
+            <div class="service-card group">
+                <div class="icon-box bg-blue-900/30">
+                    <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-6">Wealth Management</h3>
+                <p class="text-gray-300 mt-3">Comprehensive strategies for preserving and growing multi-generational
+                    wealth</p>
+                <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Tax optimization
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Estate planning
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Philanthropic strategies
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Service Card 3 -->
+            <div class="service-card group">
+                <div class="icon-box bg-blue-900/30">
+                    <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-white mt-6">Market Analytics</h3>
+                <p class="text-gray-300 mt-3">Real-time market intelligence and predictive analytics powered by AI</p>
+                <ul class="mt-4 space-y-2 text-sm text-gray-400">
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Algorithmic forecasting
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Risk assessment models
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Custom reporting
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="py-16 bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-white">Our Investment Process</h2>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto">A structured approach to maximizing returns while minimizing
+                risks</p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">Strategy Development</h3>
+                <p class="step-description">Custom investment plans aligned with your financial goals</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Portfolio Construction</h3>
+                <p class="step-description">Diversified asset allocation across global markets</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Risk Management</h3>
+                <p class="step-description">Continuous monitoring and hedging strategies</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3 class="step-title">Performance Review</h3>
+                <p class="step-description">Quarterly analytics and strategy optimization</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Performance CTA -->
+<div class="relative py-16 bg-gradient-to-r from-blue-900 to-gray-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="relative z-10 space-y-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white">
+                Consistent Outstanding Performance
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="performance-metric">
+                    <div class="metric-value">95%</div>
+                    <div class="metric-label">Success Rate</div>
+                </div>
+                <div class="performance-metric">
+                    <div class="metric-value">$2.1B+</div>
+                    <div class="metric-label">Assets Managed</div>
+                </div>
+                <div class="performance-metric">
+                    <div class="metric-value">15+</div>
+                    <div class="metric-label">Years Experience</div>
+                </div>
+            </div>
+            <a href="{% url 'account_signup' %}" class="cta-button">
+                Start Investing Today
+                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .service-card {
+        @apply p-8 bg-gray-700/20 rounded-2xl border border-gray-600/30 transition-all duration-300 hover:border-green-400/50;
+    }
+
+    .icon-box {
+        @apply w-16 h-16 rounded-2xl flex items-center justify-center backdrop-blur-sm;
+    }
+
+    .process-step {
+        @apply p-6 bg-gray-800 rounded-xl text-center hover:bg-gray-700/20 transition-colors;
+    }
+
+    .step-number {
+        @apply w-12 h-12 bg-blue-500 rounded-full text-white font-bold text-xl flex items-center justify-center mx-auto mb-4;
+    }
+
+    .step-title {
+        @apply text-lg font-semibold text-white mb-2;
+    }
+
+    .step-description {
+        @apply text-gray-400 text-sm;
+    }
+
+    .performance-metric {
+        @apply bg-white/5 p-6 rounded-xl backdrop-blur-sm;
+    }
+
+    .metric-value {
+        @apply text-4xl font-bold text-green-400 mb-2;
+    }
+
+    .metric-label {
+        @apply text-gray-300 text-sm uppercase tracking-wider;
+    }
+
+    .cta-button {
+        @apply inline-flex items-center px-8 py-3 bg-green-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 mt-8;
+    }
+</style>
+{% endblock content %}
