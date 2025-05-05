@@ -1,7 +1,7 @@
 {% extends './shared/_base.html' %}
 {% load static %}
 
-{% block title %}Investment Services - Nova Wealth{% endblock title %}
+{% block title %}Investment Services - Nexa Wealth{% endblock title %}
 
 {% block content %}
 <!-- Services Hero Section -->
@@ -44,7 +44,7 @@
         <div class="grid md:grid-cols-3 gap-8 xl:gap-12">
             <!-- Service Card 1 -->
             <div class="service-card group">
-                <div class="icon-box bg-blue-900/30">
+                <div class="icon-box ">
                     <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -77,7 +77,7 @@
 
             <!-- Service Card 2 -->
             <div class="service-card group">
-                <div class="icon-box bg-blue-900/30">
+                <div class="icon-box ">
                     <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -110,7 +110,7 @@
 
             <!-- Service Card 3 -->
             <div class="service-card group">
-                <div class="icon-box bg-blue-900/30">
+                <div class="icon-box ">
                     <svg class="w-10 h-10 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -144,37 +144,104 @@
 </section>
 
 <!-- Process Section -->
-<section class="py-16 bg-gray-900">
+<section class="py-20 bg-gradient-to-br from-gray-900 via-[#091a15] to-[#092912]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-white">Our Investment Process</h2>
-            <p class="text-gray-400 mt-4 max-w-2xl mx-auto">A structured approach to maximizing returns while minimizing
-                risks</p>
+        <div class="text-center mb-20" data-aos="fade-up">
+            <h2
+                class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                Our Investment Process
+            </h2>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto text-lg md:text-xl">
+                A structured approach to maximizing returns while minimizing risks
+            </p>
         </div>
-        <div class="grid md:grid-cols-4 gap-8">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <h3 class="step-title">Strategy Development</h3>
-                <p class="step-description">Custom investment plans aligned with your financial goals</p>
+
+        <div class="grid md:grid-cols-4 gap-8 relative">
+            <!-- Connecting line -->
+            <div
+                class="hidden md:block absolute top-16 left-1/4 right-1/4 h-1 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20">
             </div>
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <h3 class="step-title">Portfolio Construction</h3>
-                <p class="step-description">Diversified asset allocation across global markets</p>
+
+            <!-- Process Steps -->
+            <div class="group relative" data-aos="fade-up" data-aos-delay="100">
+                <div class="process-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Strategy Development</h3>
+                    <p class="step-description">Custom investment plans aligned with your financial goals</p>
+                </div>
             </div>
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <h3 class="step-title">Risk Management</h3>
-                <p class="step-description">Continuous monitoring and hedging strategies</p>
+
+            <div class="group relative" data-aos="fade-up" data-aos-delay="150">
+                <div class="process-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Portfolio Construction</h3>
+                    <p class="step-description">Diversified asset allocation across global markets</p>
+                </div>
             </div>
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <h3 class="step-title">Performance Review</h3>
-                <p class="step-description">Quarterly analytics and strategy optimization</p>
+
+            <div class="group relative" data-aos="fade-up" data-aos-delay="200">
+                <div class="process-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Risk Management</h3>
+                    <p class="step-description">Continuous monitoring and hedging strategies</p>
+                </div>
+            </div>
+
+            <div class="group relative" data-aos="fade-up" data-aos-delay="250">
+                <div class="process-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Performance Review</h3>
+                    <p class="step-description">Quarterly analytics and strategy optimization</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<style>
+    .process-card {
+        @apply relative p-8 bg-gray-800/30 rounded-2xl border border-emerald-500/10 hover:border-cyan-400/30 transition-all duration-300 backdrop-blur-sm hover:backdrop-blur-md h-full;
+    }
+
+    .process-card:hover {
+        box-shadow: 0 8px 32px rgba(16, 185, 129, 0.1);
+        transform: translateY(-5px);
+    }
+
+    .step-number {
+        @apply w-14 h-14 mb-6 flex items-center justify-center text-2xl font-bold bg-gradient-to-br from-emerald-500 to-cyan-600 rounded-full text-white;
+    }
+
+    .step-title {
+        @apply text-xl font-semibold text-emerald-400 mb-4 transition-colors duration-300 group-hover:text-cyan-300;
+    }
+
+    .step-description {
+        @apply text-gray-400 leading-relaxed text-base;
+    }
+
+    /* Animated border effect */
+    .process-card::before {
+        content: '';
+        @apply absolute inset-0 rounded-2xl z-[-1] opacity-0 transition-opacity duration-300;
+        background: linear-gradient(45deg, #05966955, #0d948855);
+        margin: -2px;
+    }
+
+    .process-card:hover::before {
+        opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+        .process-card {
+            @apply p-6;
+        }
+
+        .step-number {
+            @apply w-12 h-12 text-xl;
+        }
+    }
+</style>
 
 <!-- Performance CTA -->
 <div class="relative py-16 bg-gradient-to-r from-blue-900 to-gray-900">
