@@ -6,9 +6,9 @@
 
 {% block content %}
 <section class="min-h-fit py-20 px-6 md:px-24 bg-gradient-to-br from-gray-900 via-[#091a15] to-[#092912]">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+    <div class="max-w-3/4 mx-auto flex flex-col md:flex-row items-center gap-16">
         <!-- Left Content -->
-        <div class="w-full md:w-1/2 space-y-10" data-aos="fade-up" data-aos-delay="100">
+        <div class="md:w-[60%] w-full space-y-10" data-aos="fade-up" data-aos-delay="100">
             <!-- Crypto Ticker Widget - Modernized -->
             <div class="bg-gradient-to-r from-gray-800 to-[#1a2a2f] rounded-xl border border-emerald-500/20 p-1 shadow-2xl overflow-hidden backdrop-blur-sm"
                 data-aos="fade-in" data-aos-delay="200">
@@ -54,19 +54,13 @@
         </div>
 
         <!-- Right Content (Add your image/illustration here) -->
-        <div class="w-full md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-delay="500">
-            <div
-                class="relative w-full max-w-2xl h-96 bg-gradient-to-tr from-emerald-500/10 to-cyan-500/10 rounded-3xl backdrop-blur-xl border border-cyan-500/20 p-8">
-                <!-- Add your 3D illustration or relevant image here -->
-                <div class="absolute inset-0 flex items-center justify-center opacity-20">
-                    <div
-                        class="w-48 h-48 bg-gradient-to-r from-emerald-400 to-cyan-500 rounded-full blur-3xl opacity-50">
-                    </div>
-                </div>
-                <div class="relative z-10 text-center text-gray-400">
-                </div>
-            </div>
-        </div>
+        <!-- Lottie Animation -->
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+        <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_t9gkkhz4.json" background="transparent"
+            speed="1" style="width: 40%; height: 100%;" loop autoplay>
+        </lottie-player>
+
     </div>
 </section>
 
@@ -492,112 +486,183 @@
 
 <section class="bg-gray-900 py-16 border-t-2 border-blue-600 px-6 md:px-24">
     <div class="container mx-auto text-center">
-        <h2 class="text-3xl font-bold text-white">What Our Clients Say</h2>
-        <p class="text-gray-400 mt-2">Real stories from our happy investors.</p>
+        <h2 class="text-3xl font-bold text-white mb-4">What Our Clients Say</h2>
+        <p class="text-gray-400 mb-12">Real stories from our happy investors.</p>
 
-        <div class="mt-10 owl-carousel owl-theme">
-            <!-- Testimonial 1 -->
-            <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto">
-                <p class="text-gray-700 italic">"The best investment platform I've encountered so far. I've invested
-                    in
-                    a number of companies platforms in the past years and this has been the best I've experienced
-                    with a
-                    very good Return Of Investment and swift, effortless withdrawals also with good referral
-                    commissions. Also their support team is very efficient and reliable."</p>
-                <div class="flex items-center mt-4">
-                    <div class="flex items-center w-1/2 md:w-full justify-center">
-                        <img src="{% static 'images/testimonials-1.jpg' %}"
-                            class="w-5 aspect-square object-cover rounded-full" alt="Client 1">
+        <!-- Swiper container -->
+        <div class="swiper testimonialSwiper px-12 pb-16">
+            <div class="swiper-wrapper">
+                <!-- Testimonial 1 (Male) -->
+                <div class="swiper-slide">
+                    <div
+                        class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-1 rounded-2xl shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300 h-full">
+                        <div class="bg-gray-900 rounded-xl p-6 h-full">
+                            <div class="relative overflow-hidden rounded-lg aspect-video mb-6">
+                                <img src="{% static 'images/testimonials-1.jpg' %}"
+                                    class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent">
+                                </div>
+                                <div class="absolute bottom-4 left-4 text-left">
+                                    <h3 class="text-2xl font-bold text-white">Raj Patel</h3>
+                                    <p class="text-emerald-400 font-mono">Surgeon</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                "Nexa Wealth simplified investing for my busy schedule. Automated portfolio management
+                                grew my savings by 18% last year, even during market fluctuations."
+                            </p>
+                        </div>
                     </div>
-                    <div class="ml-3">
-                        <h4 class="text-lg font-semibold text-gray-900">George Clark</h4>
-                        <p class="text-gray-500 text-sm">Engineer</p>
+                </div>
+
+                <!-- Testimonial 2 (Female) -->
+                <div class="swiper-slide">
+                    <div
+                        class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-1 rounded-2xl shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300 h-full">
+                        <div class="bg-gray-900 rounded-xl p-6 h-full">
+                            <div class="relative overflow-hidden rounded-lg aspect-video mb-6">
+                                <img src="{% static 'images/testimonials-2.jpg' %}"
+                                    class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent">
+                                </div>
+                                <div class="absolute bottom-4 left-4 text-left">
+                                    <h3 class="text-2xl font-bold text-white">Aisha Diallo</h3>
+                                    <p class="text-emerald-400 font-mono">Freelance Designer</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                "The micro-investing feature lets me contribute small amounts regularly. Educational
+                                resources helped me master risk management."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 (Male) -->
+                <div class="swiper-slide">
+                    <div
+                        class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-1 rounded-2xl shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300 h-full">
+                        <div class="bg-gray-900 rounded-xl p-6 h-full">
+                            <div class="relative overflow-hidden rounded-lg aspect-video mb-6">
+                                <img src="{% static 'images/testimonials-3.jpg' %}"
+                                    class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent">
+                                </div>
+                                <div class="absolute bottom-4 left-4 text-left">
+                                    <h3 class="text-2xl font-bold text-white">James O'Connor</h3>
+                                    <p class="text-emerald-400 font-mono">Sustainability Consultant</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                "Transparent fee structure and ESG options that align with my values. Finally an
+                                investment platform I can trust ethically."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 (Male) -->
+                <div class="swiper-slide">
+                    <div
+                        class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-1 rounded-2xl shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300 h-full">
+                        <div class="bg-gray-900 rounded-xl p-6 h-full">
+                            <div class="relative overflow-hidden rounded-lg aspect-video mb-6">
+                                <img src="{% static 'images/testimonials-3.jpg' %}"
+                                    class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent">
+                                </div>
+                                <div class="absolute bottom-4 left-4 text-left">
+                                    <h3 class="text-2xl font-bold text-white">James O'Connor</h3>
+                                    <p class="text-emerald-400 font-mono">Sustainability Consultant</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                "Transparent fee structure and ESG options that align with my values. Finally an
+                                investment platform I can trust ethically."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 (Male) -->
+                <div class="swiper-slide">
+                    <div
+                        class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-1 rounded-2xl shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300 h-full">
+                        <div class="bg-gray-900 rounded-xl p-6 h-full">
+                            <div class="relative overflow-hidden rounded-lg aspect-video mb-6">
+                                <img src="{% static 'images/testimonials-3.jpg' %}"
+                                    class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent">
+                                </div>
+                                <div class="absolute bottom-4 left-4 text-left">
+                                    <h3 class="text-2xl font-bold text-white">James O'Connor</h3>
+                                    <p class="text-emerald-400 font-mono">Sustainability Consultant</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                "Transparent fee structure and ESG options that align with my values. Finally an
+                                investment platform I can trust ethically."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 (Male) -->
+                <div class="swiper-slide">
+                    <div
+                        class="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-1 rounded-2xl shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300 h-full">
+                        <div class="bg-gray-900 rounded-xl p-6 h-full">
+                            <div class="relative overflow-hidden rounded-lg aspect-video mb-6">
+                                <img src="{% static 'images/testimonials-3.jpg' %}"
+                                    class="w-full h-full object-cover transform group-hover:scale-105 transition duration-500">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent">
+                                </div>
+                                <div class="absolute bottom-4 left-4 text-left">
+                                    <h3 class="text-2xl font-bold text-white">James O'Connor</h3>
+                                    <p class="text-emerald-400 font-mono">Sustainability Consultant</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                "Transparent fee structure and ESG options that align with my values. Finally an
+                                investment platform I can trust ethically."
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Testimonial 2 -->
-            <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto">
-                <p class="text-gray-700 italic">"As an Entrepreneur, I come across a lot of opportunities. Many are
-                    fraud while Few are legit and do what they preach but Hashvest Trading Firm has a solid business
-                    model that is tapping an unknown market and analytics and past performance showed me that it's a
-                    valid opportunity. Now the only weak point as with every legit operation is strong and
-                    dependable
-                    management. I've known the decision-makers behind Hashvest Trading Firm for quite some time from
-                    past different ventures and I can credit them with honesty and a solid moral compass."</p>
-                <div class="flex items-center mt-4">
-                    <div class="flex items-center w-1/2 md:w-full justify-center">
-                        <img src="{% static 'images/testimonials-2.jpg' %}"
-                            class="w-5 aspect-square object-cover rounded-full" alt="Client 2">
-                    </div>
-                    <div class="w-1/2">
-                        <h4 class="text-lg font-semibold text-gray-900">Victor C.</h4>
-                        <p class="text-gray-500 text-sm">Opportunist</p>
-                    </div>
-                </div>
-            </div>
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next text-emerald-400 after:text-2xl"></div>
+            <div class="swiper-button-prev text-emerald-400 after:text-2xl"></div>
 
-            <!-- Testimonial 3 -->
-            <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto">
-                <p class="text-gray-700 italic">"Quality service ever had. My money keep increasing despite the fact
-                    that I am no professional trader. Interestingly the referral commssion becomes another great way
-                    of
-                    earning more with Hashvest."</p>
-                <div class="flex items-center mt-4">
-                    <div class="flex items-center w-1/2 md:w-full justify-center">
-                        <img src="{% static 'images/testimonials-3.jpg' %}"
-                            class="w-5 aspect-square object-cover rounded-full" alt="Client 3">
-                    </div>
-                    <div class="ml-3">
-                        <h4 class="text-lg font-semibold text-gray-900">Leeno stark</h4>
-                        <p class="text-gray-500 text-sm">Entrepreneur</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto">
-                <p class="text-gray-700 italic">"Never heard of Masternoding before. It turned out to be a total
-                    no-brainer, a secret, and a very lucrative. Thought the best time to start with Hashvest is now.
-                    It
-                    have been awesome using them since the bull run of bitcoin market"</p>
-                <div class="flex items-center mt-4">
-                    <div class="flex items-center w-1/2 md:w-full justify-center">
-                        <img src="{% static 'images/testimonials-4.jpg' %}"
-                            class="w-5 aspect-square object-cover rounded-full" alt="Client 3">
-                    </div>
-                    <div class="ml-3">
-                        <h4 class="text-lg font-semibold text-gray-900">Luise yash</h4>
-                        <p class="text-gray-500 text-sm">Business Man</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white p-6 rounded-xl shadow-lg max-w-lg mx-auto">
-                <p class="text-gray-700 italic">"As a fresh new single mommy of a young demanding boy I needed to
-                    quit
-                    my job in logistics to become a full-time mother and it is truly full-time watching over the
-                    little
-                    boy it's really a blessing that I found Hashvest Trading Firm about two year ago now. Despite
-                    cryptocurrency always fluctuating up and down and the Coronavirus wreaking havoc on the global
-                    economy (and my ex colleges being either fired or sent home worrying if they have a job
-                    tomorrow)
-                    they have continued to provide impeccable results in a transparent and efficient manner. I'm
-                    very
-                    happy and thanks to Hashvest Firm "independent" young mom."</p>
-                <div class="flex items-center mt-4">
-                    <div class="flex items-center w-1/2 md:w-full justify-center">
-                        <img src="{% static 'images/testimonials-6.jpg' %}" class="w-5 object-cover rounded-full"
-                            alt="Client 3">
-                    </div>
-                    <div class="ml-3">
-                        <h4 class="text-lg font-semibold text-gray-900">Nancy Griffin</h4>
-                        <p class="text-gray-500 text-sm">Nursing mum</p>
-                    </div>
-                </div>
-            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination !bottom-0"></div>
         </div>
     </div>
 </section>
+
+<style>
+    .swiper-pagination-bullet-active {
+        background-color: #3B82F6 !important;
+    }
+
+    .swiper-button-next:after,
+    .swiper-button-prev:after {
+        color: #3B82F6;
+        font-size: 1.5rem;
+    }
+
+    .swiper-slide {
+        height: auto;
+        padding: 1rem 0;
+    }
+</style>
 
 <section class="relative py-20 px-6 md:px-16 bg-gradient-to-b from-gray-900 to-[#0a101e]">
     <div class="container mx-auto text-center max-w-7xl">
@@ -749,14 +814,8 @@
                             <div class="flex space-x-2">
                                 <span
                                     class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Fintech</span>
-                                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">AI</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="absolute top-4 right-4">
-                        <span class="px-3 py-1 bg-gray-800/80 backdrop-blur-sm text-emerald-400 rounded-full text-sm">
-                            2.9x ROI
-                        </span>
                     </div>
                 </div>
             </div>
@@ -779,14 +838,8 @@
                             <div class="flex space-x-2">
                                 <span
                                     class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Healthcare</span>
-                                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">AI</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="absolute top-4 right-4">
-                        <span class="px-3 py-1 bg-gray-800/80 backdrop-blur-sm text-emerald-400 rounded-full text-sm">
-                            3.5x ROI
-                        </span>
                     </div>
                 </div>
             </div>
@@ -809,14 +862,8 @@
                             <div class="flex space-x-2">
                                 <span
                                     class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Energy</span>
-                                <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">AI</span>
                             </div>
                         </div>
-                    </div>
-                    <div class="absolute top-4 right-4">
-                        <span class="px-3 py-1 bg-gray-800/80 backdrop-blur-sm text-emerald-400 rounded-full text-sm">
-                            3.8x ROI
-                        </span>
                     </div>
                 </div>
             </div>
@@ -825,7 +872,6 @@
     </div>
     </div>
 
-    <!-- Decorative Elements -->
     <div class="absolute inset-0 pointer-events-none">
         <div class="absolute top-20 left-20 w-48 h-48 bg-emerald-500/10 rounded-full blur-3xl"></div>
         <div class="absolute bottom-20 right-20 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
