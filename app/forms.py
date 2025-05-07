@@ -2,6 +2,7 @@ from django import forms
 from allauth.account.forms import SignupForm
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
+from users.models import Referral
 
 User = get_user_model()
 
@@ -20,34 +21,58 @@ class CustomSignupForm(SignupForm):
         required=True,
         widget=forms.PasswordInput(),
     )
+    # Hidden referral code field
+    referral_code = forms.CharField(
+        max_length=50,
+        required=False,
+        widget=forms.TextInput(attrs={"readonly": "readonly"}),
+    )
 
     def clean_mobile(self):
         mobile = self.cleaned_data["mobile"]
-        print(f"This is mobile: {mobile}")
         if User.objects.filter(mobile=mobile).exists():
-            print("Mobile Already exists")
             raise ValidationError("A user with this mobile number already exists.")
         return mobile
 
     def save(self, request):
-        print("Saving user...")
-        print(f"Cleaned Data: {self.cleaned_data}")
+        # 1) Create user via allauth
+        user = super(CustomSignupForm, self).save(request)
 
-        try:
-            user = super(CustomSignupForm, self).save(request)
-            print(f"User created: {user}")
-        except Exception as e:
-            print(f"Error before user save: {e}")
-            raise e
+        # 2) Populate custom fields
+        user.first_name = self.cleaned_data.get("first_name")
+        user.last_name = self.cleaned_data.get("last_name")
+        user.mobile = self.cleaned_data.get("mobile")
+        user.username = self.cleaned_data.get("username")
 
-        # Continue setting fields only if user creation succeeded
-        user.first_name = self.cleaned_data["first_name"]
-        user.last_name = self.cleaned_data["last_name"]
-        user.mobile = self.cleaned_data["mobile"]
-        user.username = self.cleaned_data["username"]
+        # 3) Handle referral logic
+        code = self.cleaned_data.get("referral_code")
+        if code:
+            try:
+                referrer = User.objects.get(username=code)
+            except User.DoesNotExist:
+                referrer = None
 
-        print(f"Before saving user details: {user}")
-        user.save()
-        print(f"User successfully saved: {user}")
+            if referrer:
+                user.referred_by = referrer
+                # Save all updated fields in one go
+                user.save(
+                    update_fields=[
+                        "first_name",
+                        "last_name",
+                        "mobile",
+                        "username",
+                        "referred_by",
+                    ]
+                )
+                # Create referral record
+                Referral.objects.create(referrer=referrer, referred=user)
+            else:
+                # Save custom fields if no valid referrer
+                user.save(
+                    update_fields=["first_name", "last_name", "mobile", "username"]
+                )
+        else:
+            # No referral code
+            user.save(update_fields=["first_name", "last_name", "mobile", "username"])
 
         return user

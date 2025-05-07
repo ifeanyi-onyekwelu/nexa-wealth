@@ -26,6 +26,23 @@ class CustomUser(AbstractUser):
     profile_photo = models.ImageField(
         upload_to="profile_photos/", null=True, blank=True
     )
+    referred_by = models.ForeignKey(
+        "self",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="referrals",
+    )
 
     def __str__(self):
         return self.email
+
+
+class Referral(models.Model):
+    referrer = models.ForeignKey(
+        CustomUser, on_delete=models.CASCADE, related_name="made_referrals"
+    )
+    referred = models.OneToOneField(
+        CustomUser, on_delete=models.CASCADE, related_name="referral_entry"
+    )
+    created_at = models.DateTimeField(auto_now_add=True)

@@ -43,7 +43,7 @@
                 <dd class="font-mono text-sm text-gray-900 flex items-center gap-3 group">
                     <span class="bg-gray-100 px-2 py-1 rounded-md">{{ transaction.id }}</span>
                     <button onclick="copyToClipboard('{{ transaction.id }}')"
-                        class="opacity-0 group-hover:opacity-100 transition-opacity text-gray-400 hover:text-green-600"
+                        class="opacity-0 group-hover:opacity-100 transition-opacity text-gray-400 hover:text-blue-600"
                         aria-label="Copy transaction ID">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -66,7 +66,7 @@
 
             <div class="space-y-2">
                 <dt class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Amount</dt>
-                <dd class="text-2xl font-bold text-green-600/90 flex items-center gap-2">
+                <dd class="text-2xl font-bold text-blue-600/90 flex items-center gap-2">
                     <span>${{ transaction.amount|intcomma }}</span>
                     <span class="text-sm font-normal text-gray-500">USD</span>
                 </dd>
@@ -125,7 +125,7 @@
                                         {{ transaction.deposit_method.wallet_address|truncatechars:20 }}
                                     </span>
                                     <button onclick="copyToClipboard('{{ transaction.deposit_method.wallet_address }}')"
-                                        class="opacity-0 group-hover:opacity-100 transition-opacity text-gray-400 hover:text-green-600"
+                                        class="opacity-0 group-hover:opacity-100 transition-opacity text-gray-400 hover:text-blue-600"
                                         aria-label="Copy wallet address">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -181,7 +181,7 @@
                     </div>
                     <div class="p-4 bg-white rounded-xl border border-gray-100 text-center">
                         <dt class="text-xs text-gray-500 mb-1">Total Return</dt>
-                        <dd class="text-sm font-semibold text-green-600">
+                        <dd class="text-sm font-semibold text-blue-600">
                             {{ transaction.investment.plan.total_return }}%
                         </dd>
                     </div>
@@ -201,7 +201,7 @@
                         <span>End Date</span>
                     </div>
                     <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
-                        <div class="h-full bg-gradient-to-r from-blue-500 to-green-400 transition-all duration-500"
+                        <div class="h-full bg-gradient-to-r from-blue-500 to-blue-400 transition-all duration-500"
                             style="width: {{ transaction.investment.progress_percentage }}%">
                         </div>
                     </div>
@@ -233,18 +233,17 @@
 
     <!-- Actions -->
     <div class="border-t pt-6 flex justify-between items-center">
-        <a href="{% url 'user:dashboard' %}"
-            class="inline-flex items-center text-sm text-gray-600 hover:text-green-600">
+        <a href="{% url 'user:dashboard' %}" class="inline-flex items-center text-sm text-gray-600 hover:text-blue-600">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Back to Dashboard
         </a>
         <div class="flex items-center gap-3">
-            <button class="text-sm text-gray-600 hover:text-green-600">
+            <button class="text-sm text-gray-600 hover:text-blue-600">
                 Download Receipt
             </button>
-            <button class="text-sm text-gray-600 hover:text-green-600">
+            <button class="text-sm text-gray-600 hover:text-blue-600">
                 Contact Support
             </button>
         </div>

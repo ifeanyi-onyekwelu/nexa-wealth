@@ -14,7 +14,7 @@
             <p class="text-gray-400 mt-2">Choose from our carefully curated selection of investment plans</p>
         </div>
         <a href="{% url 'user:investments' %}"
-            class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-500 text-white rounded-lg hover:from-blue-500 hover:to-green-600 transition-all transform hover:scale-[1.02]">
+            class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all transform hover:scale-[1.02]">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -30,15 +30,14 @@
             class="relative bg-gradient-to-br from-[#1E1E1E] to-[#2A2A2A] rounded-2xl p-6 border border-blue-500/20 hover:border-blue-500/40 transition-all shadow-xl hover:shadow-2xl group">
             <!-- Plan Badge -->
             {% if plan.is_popular %}
-            <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+            <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
                 Most Popular
             </div>
             {% endif %}
 
             <!-- Plan Header -->
             <div class="text-center mb-6">
-                <h3
-                    class="text-2xl font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+                <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                     {{ plan.name }}
                 </h3>
             </div>
@@ -47,12 +46,12 @@
             <div class="space-y-4 mb-8">
                 <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                     <span class="text-gray-400">Daily Returns</span>
-                    <span class="text-green-400 font-semibold">{{ plan.daily_profit_percentage }}%</span>
+                    <span class="text-blue-400 font-semibold">{{ plan.daily_profit_percentage }}%</span>
                 </div>
 
                 <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                     <span class="text-gray-400">Duration</span>
-                    <span class="text-green-400 font-semibold">
+                    <span class="text-blue-400 font-semibold">
                         {{ plan.duration_value }} {{ plan.duration_unit|title }}
                     </span>
                 </div>
@@ -67,15 +66,15 @@
             <div class="bg-blue-500/10 p-4 rounded-lg mb-6">
                 <div class="text-center text-sm text-blue-300 mb-2">Investment Range</div>
                 <div class="flex items-center justify-center gap-2 font-mono">
-                    <span class="text-green-400">${{ plan.min_amount|floatformat:0|intcomma }}</span>
+                    <span class="text-blue-400">${{ plan.min_amount|floatformat:0|intcomma }}</span>
                     <span class="text-gray-400">-</span>
-                    <span class="text-green-400">${{ plan.max_amount|floatformat:0|intcomma }}</span>
+                    <span class="text-blue-400">${{ plan.max_amount|floatformat:0|intcomma }}</span>
                 </div>
             </div>
 
             <!-- CTA Button -->
             <a href="{% url 'user:invest' plan.id %}"
-                class="block w-full py-3 text-center font-semibold text-white bg-gradient-to-r from-green-600 to-blue-500 rounded-lg hover:from-blue-500 hover:to-green-600 transition-all transform group-hover:-translate-y-1">
+                class="block w-full py-3 text-center font-semibold text-white bg-gradient-to-r from-blue-600 to-blue-500 rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all transform group-hover:-translate-y-1">
                 Start Investing
                 <svg class="w-4 h-4 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -46,7 +46,7 @@
             {% elif deposit_method.crypto_type == "LTC" %}
             <img src="{% static 'images/litecoin.png' %}" alt="Litecoin" class="w-12 h-12 object-contain">
             {% elif deposit_method.crypto_type == "BANK" %}
-            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
+            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                 <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
@@ -80,15 +80,14 @@
                         <div class="flex items-center justify-between mb-2">
                             <span class="text-sm text-blue-300">Wallet Address</span>
                             <button onclick="copyToClipboard('{{ deposit_method.wallet_address }}')"
-                                class="text-green-400 hover:text-blue-300 transition-colors">
+                                class="text-blue-400 hover:text-blue-300 transition-colors">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                 </svg>
                             </button>
                         </div>
-                        <div class="font-mono text-sm text-green-400 break-all">{{ deposit_method.wallet_address }}
-                        </div>
+                        <div class="font-mono text-sm text-blue-400 break-all">{{ deposit_method.wallet_address }}</div>
                     </div>
                 </div>
             </div>
@@ -96,7 +95,7 @@
 
             <!-- Instructions -->
             <div class="bg-gray-900 rounded-xl p-6 border border-blue-800/50 shadow-lg">
-                <h3 class="text-lg font-semibold text-green-400 mb-4 flex items-center gap-2">
+                <h3 class="text-lg font-semibold text-blue-400 mb-4 flex items-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 10h18M7 3v2m10-2v2M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -109,7 +108,7 @@
                     <!-- Special Layout for Bank Transfers -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="space-y-4 p-4 bg-gray-800/30 rounded-lg">
-                            <div class="flex items-center gap-3 text-green-400">
+                            <div class="flex items-center gap-3 text-blue-400">
                                 <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -119,14 +118,14 @@
                             </div>
                             <ul class="space-y-2 text-sm">
                                 <li>📞 24/7 Support: <a href="mailto:support@domain.com"
-                                        class="text-green-400 hover:text-blue-300">support@domain.com</a></li>
+                                        class="text-blue-400 hover:text-blue-300">support@domain.com</a></li>
                                 <li>🔐 Get verified payment details</li>
                                 <li>📨 Receive unique reference code</li>
                             </ul>
                         </div>
 
                         <div class="space-y-4 p-4 bg-gray-800/30 rounded-lg">
-                            <div class="flex items-center gap-3 text-green-400">
+                            <div class="flex items-center gap-3 text-blue-400">
                                 <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -156,8 +155,8 @@
                     </div>
 
                     <div class="space-y-6">
-                        <div class="border-l-4 border-green-600 pl-4">
-                            <h4 class="font-semibold text-green-400 mb-2">Transfer Requirements</h4>
+                        <div class="border-l-4 border-blue-600 pl-4">
+                            <h4 class="font-semibold text-blue-400 mb-2">Transfer Requirements</h4>
                             <ul class="space-y-2 text-sm">
                                 <li class="flex items-center gap-2">
                                     <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor"
@@ -165,7 +164,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M5 13l4 4L19 7" />
                                     </svg>
-                                    Include username: <span class="font-mono text-green-400">[Your_ID]</span>
+                                    Include username: <span class="font-mono text-blue-400">[Your_ID]</span>
                                 </li>
                                 <li class="flex items-center gap-2">
                                     <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor"
@@ -179,7 +178,7 @@
                         </div>
 
                         <div class="bg-blue-900/20 p-4 rounded-lg">
-                            <h4 class="font-semibold text-green-400 mb-3">Verification Process</h4>
+                            <h4 class="font-semibold text-blue-400 mb-3">Verification Process</h4>
                             <div class="flex flex-col md:flex-row gap-4 text-sm">
                                 <div class="flex-1">
                                     <div class="font-medium mb-1">1. Upload Receipt</div>
@@ -222,7 +221,7 @@
 
         <!-- Submit Button -->
         <button type="submit"
-            class="w-full py-4 bg-gradient-to-r from-green-600 to-blue-500 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-green-600 transition-all transform hover:scale-[1.02] shadow-lg shadow-blue-500/20">
+            class="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-blue-600 transition-all transform hover:scale-[1.02] shadow-lg shadow-blue-500/20">
             Confirm Deposit
         </button>
     </form>

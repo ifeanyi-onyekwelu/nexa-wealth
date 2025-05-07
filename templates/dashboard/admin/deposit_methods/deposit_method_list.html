@@ -36,18 +36,18 @@ Deposit Methods
             {% endif %}
 
             <ul class="text-xl text-center w-3/4">
-                <li class="p-2 border-dashed border border-green-600">
+                <li class="p-2 border-dashed border border-blue-600">
                     {{ crypto.crypto_type}}
                 </li>
-                <li class="p-2 border-dashed border border-green-600">
+                <li class="p-2 border-dashed border border-blue-600">
                     Limit : 100 - {{1000000|floatformat:2|intcomma}} USD
                 </li>
-                <li class="p-2 border-dashed border border-green-600">
+                <li class="p-2 border-dashed border border-blue-600">
                     Charge - 0 USD + 0%
                 </li>
-                <li class="p-2 border-dashed border border-green-600">
+                <li class="p-2 border-dashed border border-blue-600">
                     <a href="{% url 'admin:deposit-method-detail' crypto.id %}"
-                        class="block py-2 px-6 rounded-sm bg-green-600 hover:bg-blue-700 text-center">Info</a>
+                        class="block py-2 px-6 rounded-sm bg-blue-600 hover:bg-blue-700 text-center">Info</a>
                 </li>
             </ul>
         </div>

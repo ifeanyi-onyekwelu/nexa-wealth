@@ -15,7 +15,7 @@ Dashboard
 <div
     class="rounded-xl space-y-4 border border-blue-500/30 shadow-2xl shadow-blue-500/20 bg-[#2C2C2C] hover:shadow-blue-500/30 transition-all duration-300">
     <!-- Header with gradient -->
-    <div class="p-6 bg-gradient-to-r from-green-600 to-blue-700 rounded-t-sm">
+    <div class="p-6 bg-gradient-to-r from-blue-600 to-blue-700 rounded-t-sm">
         <div class="flex items-center space-x-3">
             <i class="ti ti-info-circle text-2xl text-white/90"></i>
             <h2 class="text-2xl font-bold text-white/90 tracking-tight">How It Works</h2>
@@ -25,7 +25,7 @@ Dashboard
     <div class="p-6 space-y-8 text-white/90">
         <!-- Title Section -->
         <div class="text-center space-y-2">
-            <h2 class="text-3xl font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+            <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                 Start Growing Your Wealth in 5 Simple Steps
             </h2>
             <div class="w-24 h-1 bg-blue-500 mx-auto rounded-full"></div>
@@ -40,10 +40,10 @@ Dashboard
                 </div>
                 <div class="flex flex-col space-y-4 items-center text-center">
                     <div class="p-3 bg-blue-500/20 rounded-full group-hover:bg-blue-500/30 transition-colors">
-                        <i class="ti ti-wallet text-4xl text-green-400 group-hover:text-blue-300 transition-all"></i>
+                        <i class="ti ti-wallet text-4xl text-blue-400 group-hover:text-blue-300 transition-all"></i>
                     </div>
                     <p class="text-lg leading-relaxed">
-                        <span class="font-bold text-green-400">1.</span> Fund your account using our secure deposit
+                        <span class="font-bold text-blue-400">1.</span> Fund your account using our secure deposit
                         methods (crypto preferred)
                     </p>
                 </div>
@@ -56,10 +56,10 @@ Dashboard
                 </div>
                 <div class="flex flex-col space-y-4 items-center text-center">
                     <div class="p-3 bg-blue-500/20 rounded-full group-hover:bg-blue-500/30 transition-colors">
-                        <i class="ti ti-briefcase text-4xl text-green-400 group-hover:text-blue-300 transition-all"></i>
+                        <i class="ti ti-briefcase text-4xl text-blue-400 group-hover:text-blue-300 transition-all"></i>
                     </div>
                     <p class="text-lg leading-relaxed">
-                        <span class="font-bold text-green-400">2.</span> Select your ideal investment plan & activate
+                        <span class="font-bold text-blue-400">2.</span> Select your ideal investment plan & activate
                         (instant email confirmation)
                     </p>
                 </div>
@@ -72,10 +72,10 @@ Dashboard
                 </div>
                 <div class="flex flex-col space-y-4 items-center text-center">
                     <div class="p-3 bg-blue-500/20 rounded-full group-hover:bg-blue-500/30 transition-colors">
-                        <i class="ti ti-chart-bar text-4xl text-green-400 group-hover:text-blue-300 transition-all"></i>
+                        <i class="ti ti-chart-bar text-4xl text-blue-400 group-hover:text-blue-300 transition-all"></i>
                     </div>
                     <p class="text-lg leading-relaxed">
-                        <span class="font-bold text-green-400">3.</span> Track real-time growth in your dashboard &
+                        <span class="font-bold text-blue-400">3.</span> Track real-time growth in your dashboard &
                         withdraw anytime
                     </p>
                 </div>
@@ -88,11 +88,10 @@ Dashboard
                 </div>
                 <div class="flex flex-col space-y-4 items-center text-center">
                     <div class="p-3 bg-blue-500/20 rounded-full group-hover:bg-blue-500/30 transition-colors">
-                        <i class="ti ti-refresh text-4xl text-green-400 group-hover:text-blue-300 transition-all"></i>
+                        <i class="ti ti-refresh text-4xl text-blue-400 group-hover:text-blue-300 transition-all"></i>
                     </div>
                     <p class="text-lg leading-relaxed">
-                        <span class="font-bold text-green-400">4.</span> Maximize returns with 6-month profit
-                        compounding
+                        <span class="font-bold text-blue-400">4.</span> Maximize returns with 6-month profit compounding
                         option
                     </p>
                 </div>
@@ -106,10 +105,10 @@ Dashboard
                 <div class="flex flex-col space-y-4 items-center text-center">
                     <div class="p-3 bg-blue-500/20 rounded-full group-hover:bg-blue-500/30 transition-colors">
                         <i
-                            class="ti ti-message-circle text-4xl text-green-400 group-hover:text-blue-300 transition-all"></i>
+                            class="ti ti-message-circle text-4xl text-blue-400 group-hover:text-blue-300 transition-all"></i>
                     </div>
                     <p class="text-lg leading-relaxed">
-                        <span class="font-bold text-green-400">5.</span> 24/7 expert support via live chat - click the
+                        <span class="font-bold text-blue-400">5.</span> 24/7 expert support via live chat - click the
                         chat icon below
                     </p>
                 </div>
@@ -149,7 +148,7 @@ Dashboard
         <div class="grid grid-cols-2 gap-4">
             <div class="bg-white/50 p-4 rounded-lg text-center border border-[#2468EF]/10">
                 <p class="text-[#0C5460]/80 text-sm mb-1">Total Referrals</p>
-                <p class="text-2xl font-bold text-[#2468EF]">12</p>
+                <p class="text-2xl font-bold text-[#2468EF]">{{ total_referrals }}</p>
             </div>
             <div class="bg-white/50 p-4 rounded-lg text-center border border-[#2468EF]/10">
                 <p class="text-[#0C5460]/80 text-sm mb-1">Commission Rate</p>
@@ -190,20 +189,20 @@ Dashboard
     </div>
 </div>
 
-<div class="py-16 bg-gradient-to-b from-blue-50/30 to-transparent border-t-2 border-green-600 px-6 md:px-24">
+<div class="py-16 bg-gradient-to-b from-blue-50/30 to-transparent border-t-2 border-blue-600 px-6 md:px-24">
     <div id="plans"></div>
     <div class="container mx-auto px-4">
         <div class="text-center mb-16">
             <div class="inline-flex items-center gap-3 mb-4">
-                <div class="w-8 h-1 bg-green-600 rounded-full"></div>
+                <div class="w-8 h-1 bg-blue-600 rounded-full"></div>
                 <h2 class="text-4xl font-bold text-gray-900">Staking Plans</h2>
-                <div class="w-8 h-1 bg-green-600 rounded-full"></div>
+                <div class="w-8 h-1 bg-blue-600 rounded-full"></div>
             </div>
             <p class="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
                 At Nexa Wealth Staking, we believe in
-                <span class="font-semibold text-green-600">simplicity</span>,
-                <span class="font-semibold text-green-600">transparency</span>, and
-                <span class="font-semibold text-green-600">value</span>. Explore our tailored plans designed to help
+                <span class="font-semibold text-blue-600">simplicity</span>,
+                <span class="font-semibold text-blue-600">transparency</span>, and
+                <span class="font-semibold text-blue-600">value</span>. Explore our tailored plans designed to help
                 investors of all levels
                 maximize their earnings.
             </p>
@@ -221,7 +220,7 @@ Dashboard
                 </p>
             </div>
             <a href="{% url 'user:plan_list' %}"
-                class="inline-flex items-center justify-center px-8 py-4 bg-green-600 hover:bg-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <span class="text-lg font-semibold">Browse All Staking Plans</span>
                 <i class="ti ti-arrow-right text-xl ml-3"></i>
             </a>
@@ -362,7 +361,6 @@ Dashboard
         </div>
     </div>
 </div>
-
 
 <script>
     function copyReferralLink() {

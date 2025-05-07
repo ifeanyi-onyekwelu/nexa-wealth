@@ -6,20 +6,20 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center text-sm">
                 <div class="flex space-x-4 text-gray-300">
-                    <a href="tel:+15073511736" class="flex items-center hover:text-green-400 transition-colors">
+                    <a href="tel:+15073511736" class="flex items-center hover:text-blue-400 transition-colors">
                         <i class="ti ti-phone mr-2"></i> +1 507-351-1736
                     </a>
-                    <a href="mailto:ProNexa Wealthtrading@gmail.com"
-                        class="flex items-center hover:text-green-400 transition-colors">
-                        <i class="ti ti-mail mr-2"></i> ProNexa Wealthtrading@gmail.com
+                    <a href="mailto:ProNexa Wealth@gmail.com"
+                        class="flex items-center hover:text-blue-400 transition-colors">
+                        <i class="ti ti-mail mr-2"></i> ProNexa Wealth@gmail.com
                     </a>
                 </div>
                 <div class="mt-2 md:mt-0 flex items-center space-x-4">
                     <span class="text-gray-400">Follow us:</span>
                     <div class="flex space-x-2">
-                        <a href="#" class="text-gray-300 hover:text-green-400"><i class="ti ti-brand-twitter"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-green-400"><i class="ti ti-brand-telegram"></i></a>
-                        <a href="#" class="text-gray-300 hover:text-green-400"><i class="ti ti-brand-facebook"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400"><i class="ti ti-brand-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400"><i class="ti ti-brand-telegram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-blue-400"><i class="ti ti-brand-facebook"></i></a>
                     </div>
                 </div>
             </div>
@@ -37,15 +37,15 @@
             <div class="hidden md:flex items-center space-x-8">
 
                 <a href="{% url 'admin:dashboard' %}"
-                    class="text-gray-300 hover:text-green-400 px-3 py-2 transition-colors">Dashboard</a>
+                    class="text-gray-300 hover:text-blue-400 px-3 py-2 transition-colors">Dashboard</a>
                 <a href="{% url 'admin:user-list' %}"
-                    class="text-gray-300 hover:text-green-400 px-3 py-2 transition-colors">Users</a>
+                    class="text-gray-300 hover:text-blue-400 px-3 py-2 transition-colors">Users</a>
                 <a href="{% url 'admin:investment-list' %}"
-                    class="text-gray-300 hover:text-green-400 px-3 py-2 transition-colors">Investments</a>
+                    class="text-gray-300 hover:text-blue-400 px-3 py-2 transition-colors">Investments</a>
                 <a href="{% url 'admin:plan-list' %}"
-                    class="text-gray-300 hover:text-green-400 px-3 py-2 transition-colors">Plans</a>
+                    class="text-gray-300 hover:text-blue-400 px-3 py-2 transition-colors">Plans</a>
                 <a href="{% url 'admin:deposit-method-list' %}"
-                    class="text-gray-300 hover:text-green-400 px-3 py-2 transition-colors">Deposit Methods</a>
+                    class="text-gray-300 hover:text-blue-400 px-3 py-2 transition-colors">Deposit Methods</a>
             </div>
 
             <!-- User Actions -->
@@ -53,7 +53,7 @@
                 <!-- User Dropdown -->
                 <div class="relative group">
                     <button class="flex items-center space-x-2 focus:outline-none">
-                        <div class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center">
+                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
                             <span class="text-white">A</span>
                         </div>
                         <span class="text-gray-300">Account</span>
@@ -64,14 +64,14 @@
                     <div
                         class="absolute right-0 mt-2 w-48 bg-[#1a1f2d] rounded-lg shadow-xl py-2 hidden group-hover:block transition-opacity z-50">
                         <a href="{% url 'account_logout' %}"
-                            class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20 hover:text-green-400">
+                            class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20 hover:text-blue-400">
                             <i class="ti ti-logout mr-2"></i> Logout
                         </a>
                     </div>
                 </div>
 
                 <!-- Mobile Menu Toggle -->
-                <button id="mobileMenuButton" class="md:hidden text-gray-300 hover:text-green-400">
+                <button id="mobileMenuButton" class="md:hidden text-gray-300 hover:text-blue-400">
                     <i class="ti ti-menu-2 text-2xl"></i>
                 </button>
             </div>
@@ -83,25 +83,25 @@
         class="md:hidden fixed inset-0 z-50 bg-[#131722] transform -translate-x-full transition-transform duration-300">
         <div class="flex items-center justify-between p-4 border-b border-gray-800">
             <img src="{% static 'images/logo.png' %}" alt="Logo" class="h-8">
-            <button id="closeMenu" class="text-gray-300 hover:text-green-400">
+            <button id="closeMenu" class="text-gray-300 hover:text-blue-400">
                 <i class="ti ti-x text-2xl"></i>
             </button>
         </div>
 
         <div class="p-4 space-y-4">
-            <a href="{% url 'admin:dashboard' %}" class="block text-gray-300 hover:text-green-400 p-3">Dashboard</a>
-            <a href="{% url 'admin:user-list' %}" class="block text-gray-300 hover:text-green-400 p-3">Users</a>
+            <a href="{% url 'admin:dashboard' %}" class="block text-gray-300 hover:text-blue-400 p-3">Dashboard</a>
+            <a href="{% url 'admin:user-list' %}" class="block text-gray-300 hover:text-blue-400 p-3">Users</a>
             <a href="{% url 'admin:investment-list' %}"
-                class="block text-gray-300 hover:text-green-400 p-3">Investments</a>
-            <a href="{% url 'admin:plan-list' %}" class="block text-gray-300 hover:text-green-400 p-3">Plans</a>
-            <a href="{% url 'admin:deposit-method-list' %}" class="block text-gray-300 hover:text-green-400 p-3">Deposit
+                class="block text-gray-300 hover:text-blue-400 p-3">Investments</a>
+            <a href="{% url 'admin:plan-list' %}" class="block text-gray-300 hover:text-blue-400 p-3">Plans</a>
+            <a href="{% url 'admin:deposit-method-list' %}" class="block text-gray-300 hover:text-blue-400 p-3">Deposit
                 Methods</a>
-            <a href="{% url 'admin:wallet-list' %}" class="block text-gray-300 hover:text-green-400 p-3">Wallets</a>
+            <a href="{% url 'admin:wallet-list' %}" class="block text-gray-300 hover:text-blue-400 p-3">Wallets</a>
             <a href="{% url 'admin:transaction-list' %}"
-                class="block text-gray-300 hover:text-green-400 p-3">Transactions</a>
+                class="block text-gray-300 hover:text-blue-400 p-3">Transactions</a>
 
             <div class="pt-4 border-t border-gray-800">
-                <a href="{% url 'account_logout' %}" class="block text-gray-300 hover:text-green-400 p-3">
+                <a href="{% url 'account_logout' %}" class="block text-gray-300 hover:text-blue-400 p-3">
                     <i class="ti ti-logout mr-2"></i> Logout
                 </a>
             </div>

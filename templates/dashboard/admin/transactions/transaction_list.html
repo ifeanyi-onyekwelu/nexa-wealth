@@ -54,7 +54,7 @@ Transactions
             <div class="text-center">
                 {% if transaction.status == "PENDING" %}
                 <a href="{% url 'admin:transaction-action' transaction.id %}"
-                    class="bg-green-600 text-white text-xs px-3 py-1 rounded hover:bg-blue-700 transition">
+                    class="bg-blue-600 text-white text-xs px-3 py-1 rounded hover:bg-blue-700 transition">
                     Review
                 </a>
                 {% endif %}

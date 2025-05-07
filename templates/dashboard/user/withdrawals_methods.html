@@ -28,7 +28,7 @@
 
             <!-- Details -->
             <div class="flex-1 space-y-4">
-                <h3 class="text-xl font-bold text-center md:text-left text-green-400">
+                <h3 class="text-xl font-bold text-center md:text-left text-blue-400">
                     {{ crypto.get_crypto_type_display }}
                 </h3>
 
@@ -49,7 +49,7 @@
                 </div>
 
                 <a href="{% url 'user:withdrawal_create' crypto.id %}"
-                    class="block w-full py-3 text-center font-semibold text-white bg-green-600 hover:bg-blue-700 rounded-lg transition-all duration-300 transform group-hover:-translate-y-1">
+                    class="block w-full py-3 text-center font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-all duration-300 transform group-hover:-translate-y-1">
                     Withdraw Now
                     <svg class="w-4 h-4 inline-block ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

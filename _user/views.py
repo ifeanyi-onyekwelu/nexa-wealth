@@ -12,7 +12,7 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from app.models import Plan, Investment, Transaction, DepositMethod, Wallet
 from .forms import ProfileUpdateForm, InvestmentForm, DepositForm, WithdrawalForm
-from users.models import CustomUser
+from users.models import CustomUser, Referral
 import logging
 from django.db.models import Sum
 import os
@@ -87,9 +87,12 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         context["investments"] = Investment.objects.filter(user=self.request.user)
 
         context["REFERRAL_LINK"] = (
-            os.getenv("APP_URL")
-            + f"/accounts/register?ref={self.request.user.username}"
+            os.getenv("APP_URL") + f"/accounts/signup/?ref={self.request.user.username}"
         )
+
+        context["total_referrals"] = Referral.objects.filter(
+            referrer=self.request.user
+        ).count()
 
         return context
 

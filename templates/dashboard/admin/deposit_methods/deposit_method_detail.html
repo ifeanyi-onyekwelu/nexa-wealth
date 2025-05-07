@@ -48,7 +48,7 @@ Plan - {{ plan.name }}
         <!-- Edit & Delete Buttons -->
         <div class="flex justify-end space-x-4 mt-5">
             <a href="{% url 'admin:deposit-method-update' deposit_method.id %}"
-                class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
+                class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
                 Edit Deposit Method
             </a>
             <a href="{% url 'admin:deposit-method-delete' deposit_method.id %}"

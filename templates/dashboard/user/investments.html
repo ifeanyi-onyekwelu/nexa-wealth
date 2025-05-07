@@ -10,7 +10,7 @@
 <div class="w-full overflow-x-auto rounded-lg shadow-xl mt-6">
     <!-- Header -->
     <div
-        class="grid grid-cols-7 gap-4 bg-gradient-to-r from-green-600 to-blue-500 px-6 py-4 text-sm font-semibold text-white">
+        class="grid grid-cols-7 gap-4 bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-4 text-sm font-semibold text-white">
         <div>Date</div>
         <div class="text-center">ID</div>
         <div class="text-center">Plan</div>
@@ -30,7 +30,7 @@
             <!-- ID -->
             <div class="text-center">
                 <a href="{% url 'user:investment_details' transaction.id %}"
-                    class="font-mono text-sm text-green-400 hover:text-blue-300">
+                    class="font-mono text-sm text-blue-400 hover:text-blue-300">
                     {{ transaction.id|truncatechars:8 }}
                 </a>
             </div>
@@ -68,7 +68,7 @@
                 </svg>
                 <h3 class="mt-6 text-lg font-medium text-gray-200">No investments found</h3>
                 <a href="{% url 'user:plan_list' %}"
-                    class="mt-4 inline-flex items-center px-4 py-2 bg-green-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
+                    class="mt-4 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
                     Browse Plans
                 </a>
             </div>

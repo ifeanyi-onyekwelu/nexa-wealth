@@ -21,7 +21,7 @@ Plans
         <div
             class="rounded-xl shadow-md shadow-blue-300 overflow-hidden p-6 text-center border-2 border-blue-700 space-y-10 text-white investment-plan">
             <!-- Header -->
-            <p class="text-green-600 font-medium text-2xl">{{ plan.name }}</p>
+            <p class="text-blue-600 font-medium text-2xl">{{ plan.name }}</p>
             <ul class="space-y-2 text-lg font-medium">
                 <li>Return {{ plan.daily_profit_percentage }}%</li>
                 <hr class="border-blue-200">
@@ -39,12 +39,12 @@ Plans
                 <hr class="border-blue-200">
             </ul>
             <!-- Price Range -->
-            <p class="text-green-600 text-sm font-medium">${{plan.min_amount|floatformat:2|intcomma }} -
+            <p class="text-blue-600 text-sm font-medium">${{plan.min_amount|floatformat:2|intcomma }} -
                 ${{plan.max_amount|floatformat:2|intcomma }}</p>
 
             <!-- Invest Button -->
             <a href="{% url 'admin:plan-detail' plan.id %}"
-                class="block w-fit mx-auto bg-green-600 hover:bg-blue-700 text-black text-center py-2 px-7 rounded-md transition-colors duration-200">
+                class="block w-fit mx-auto bg-blue-600 hover:bg-blue-700 text-black text-center py-2 px-7 rounded-md transition-colors duration-200">
                 View Info
             </a>
         </div>

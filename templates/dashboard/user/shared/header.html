@@ -12,23 +12,23 @@
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="{% url 'user:dashboard' %}"
-                    class="text-gray-300 hover:text-green-400 px-3 py-2 transition-colors">
+                    class="text-gray-300 hover:text-blue-400 px-3 py-2 transition-colors">
                     Dashboard
                 </a>
                 <a href="{% url 'user:plan_list' %}"
-                    class="text-gray-300 hover:text-green-400 px-3 py-2 transition-colors">
+                    class="text-gray-300 hover:text-blue-400 px-3 py-2 transition-colors">
                     Investments
                 </a>
                 <a href="{% url 'user:deposit_methods' %}"
-                    class="text-gray-300 hover:text-green-400 px-3 py-2 transition-colors">
+                    class="text-gray-300 hover:text-blue-400 px-3 py-2 transition-colors">
                     Deposit
                 </a>
                 <a href="{% url 'user:withdrawal_methods' %}"
-                    class="text-gray-300 hover:text-green-400 px-3 py-2 transition-colors">
+                    class="text-gray-300 hover:text-blue-400 px-3 py-2 transition-colors">
                     Withdraw
                 </a>
                 <a href="{% url 'user:deposits' %}"
-                    class="text-gray-300 hover:text-green-400 px-3 py-2 transition-colors">
+                    class="text-gray-300 hover:text-blue-400 px-3 py-2 transition-colors">
                     Transactions
                 </a>
             </div>
@@ -38,7 +38,7 @@
                 <!-- User Dropdown -->
                 <div class="relative group">
                     <button class="flex items-center space-x-2 focus:outline-none">
-                        <div class="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center">
+                        <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
                             <span class="text-white">{{ request.user.first_name|slice:":1" }}</span>
                         </div>
                         <span class="text-gray-300">Account</span>
@@ -49,18 +49,18 @@
                     <div
                         class="absolute right-0 mt-2 w-48 bg-[#1a1f2d] rounded-lg shadow-xl py-2 hidden group-hover:block transition-opacity z-50">
                         <a href="{% url 'user:profile' %}"
-                            class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20 hover:text-green-400">
+                            class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20 hover:text-blue-400">
                             <i class="ti ti-user mr-2"></i> Profile
                         </a>
                         <a href="{% url 'account_logout' %}"
-                            class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20 hover:text-green-400">
+                            class="block px-4 py-2 text-gray-300 hover:bg-blue-900/20 hover:text-blue-400">
                             <i class="ti ti-logout mr-2"></i> Logout
                         </a>
                     </div>
                 </div>
 
                 <!-- Mobile Menu Toggle -->
-                <button id="mobileMenuButton" class="md:hidden text-gray-300 hover:text-green-400">
+                <button id="mobileMenuButton" class="md:hidden text-gray-300 hover:text-blue-400">
                     <i class="ti ti-menu-2 text-2xl"></i>
                 </button>
             </div>
@@ -72,24 +72,24 @@
         class="md:hidden fixed inset-0 z-50 bg-[#131722] transform -translate-x-full transition-transform duration-300">
         <div class="flex items-center justify-between p-4 border-b border-gray-800">
             <img src="{% static 'images/logo.png' %}" alt="Logo" class="h-8">
-            <button id="closeMenu" class="text-gray-300 hover:text-green-400">
+            <button id="closeMenu" class="text-gray-300 hover:text-blue-400">
                 <i class="ti ti-x text-2xl"></i>
             </button>
         </div>
 
         <div class="p-4 space-y-4">
-            <a href="{% url 'user:dashboard' %}" class="block text-gray-300 hover:text-green-400 p-3">Dashboard</a>
-            <a href="{% url 'user:plan_list' %}" class="block text-gray-300 hover:text-green-400 p-3">Investments</a>
-            <a href="{% url 'user:deposit_methods' %}" class="block text-gray-300 hover:text-green-400 p-3">Deposit</a>
+            <a href="{% url 'user:dashboard' %}" class="block text-gray-300 hover:text-blue-400 p-3">Dashboard</a>
+            <a href="{% url 'user:plan_list' %}" class="block text-gray-300 hover:text-blue-400 p-3">Investments</a>
+            <a href="{% url 'user:deposit_methods' %}" class="block text-gray-300 hover:text-blue-400 p-3">Deposit</a>
             <a href="{% url 'user:withdrawal_methods' %}"
-                class="block text-gray-300 hover:text-green-400 p-3">Withdraw</a>
-            <a href="{% url 'user:deposits' %}" class="block text-gray-300 hover:text-green-400 p-3">Transactions</a>
+                class="block text-gray-300 hover:text-blue-400 p-3">Withdraw</a>
+            <a href="{% url 'user:deposits' %}" class="block text-gray-300 hover:text-blue-400 p-3">Transactions</a>
 
             <div class="pt-4 border-t border-gray-800">
-                <a href="{% url 'user:profile' %}" class="block text-gray-300 hover:text-green-400 p-3">
+                <a href="{% url 'user:profile' %}" class="block text-gray-300 hover:text-blue-400 p-3">
                     <i class="ti ti-user mr-2"></i> Profile
                 </a>
-                <a href="{% url 'account_logout' %}" class="block text-gray-300 hover:text-green-400 p-3">
+                <a href="{% url 'account_logout' %}" class="block text-gray-300 hover:text-blue-400 p-3">
                     <i class="ti ti-logout mr-2"></i> Logout
                 </a>
             </div>
