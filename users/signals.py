@@ -31,7 +31,7 @@ def notify_referrer(sender, instance, created, **kwargs):
             "Community Growth Manager\n"
             "Nexa Wealth\n\n"
             f"P.S. Every referral makes a difference! 🌱 We're here to support your financial journey - "
-            f"reach out anytime at {getattr(settings, 'SUPPORT_EMAIL', 'support.nexawealth@gmail.com')}"
+            f"reach out anytime at {getattr(settings, 'SUPPORT_EMAIL', 'help.nexawealth@gmail.comcom')}"
         ),
         from_email=settings.DEFAULT_FROM_EMAIL,
         recipient_list=[ref.email],
