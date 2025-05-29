@@ -7,70 +7,91 @@
 
 {% block content %}
 {% include './shared/transactionsTab.html' %}
-<div class="w-full overflow-x-auto rounded-lg shadow-xl mt-6">
-    <!-- Header -->
+
+<div class="border border-gray-700 rounded-xl bg-[#1E1E1E] overflow-hidden mt-6">
+    <!-- Desktop Header -->
     <div
-        class="grid grid-cols-7 gap-4 bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-4 text-sm font-semibold text-white">
-        <div>Date</div>
+        class="hidden sm:grid grid-cols-5 gap-4 bg-gradient-to-r from-blue-600/80 to-blue-500/80 px-6 py-3 text-sm font-semibold text-white">
+        <div>Plan</div>
         <div class="text-center">ID</div>
-        <div class="text-center">Plan</div>
         <div class="text-center">Amount</div>
-        <div class="text-center">Start Date</div>
-        <div class="text-center">End Date</div>
+        <div class="text-center">Duration</div>
         <div class="text-center">Status</div>
     </div>
 
-    <!-- Body -->
-    <div class="divide-y divide-gray-700/50 bg-[#1E1E1E]">
-        {% for transaction in investments %}
-        <div class="grid grid-cols-7 gap-4 px-6 py-4 transition-colors hover:bg-[#2A2A2A]">
-            <!-- Dates -->
-            <div class="text-gray-300">{{ transaction.investment.start_date|date:"m/d/Y" }}</div>
-
-            <!-- ID -->
-            <div class="text-center">
-                <a href="{% url 'user:investment_details' transaction.id %}"
-                    class="font-mono text-sm text-blue-400 hover:text-blue-300">
-                    {{ transaction.id|truncatechars:8 }}
-                </a>
+    <div class="divide-y divide-gray-700/50">
+        {% for transaction in investments reversed %}
+        <!-- Desktop View -->
+        <div class="hidden sm:grid grid-cols-5 gap-4 px-6 py-3 hover:bg-[#2A2A2A] transition-colors">
+            <div class="text-gray-200">{{ transaction.investment.plan.name }}</div>
+            <div class="text-center font-mono text-blue-400 hover:text-blue-300">
+                <a href="{% url 'user:investment_details' transaction.id %}">{{ transaction.id|truncatechars:10 }}</a>
             </div>
-
-            <!-- Plan -->
-            <div class="text-center text-gray-200">{{ transaction.investment.plan.name }}</div>
-
-            <!-- Amount -->
             <div class="text-center text-green-400 font-medium">
                 ${{ transaction.investment.amount|floatformat:2|intcomma }}
             </div>
-
-            <!-- Dates -->
-            <div class="text-center text-gray-300">{{ transaction.investment.start_date|date:"m/d/Y" }}</div>
-            <div class="text-center text-gray-300">{{ transaction.investment.end_date|date:"m/d/Y" }}</div>
-
-            <!-- Status -->
+            <div class="text-center text-gray-300 text-sm">
+                {{ transaction.investment.start_date|date:"M j" }} - {{ transaction.investment.end_date|date:"M j" }}
+            </div>
             <div class="text-center">
-                <div class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm
                     {% if transaction.investment.is_active %}bg-green-500/20 text-green-400
-                    {% else %}bg-red-500/20 text-red-400{% endif %}">
-                    <div class="h-2 w-2 rounded-full mr-2
+                    {% else %}bg-purple-500/20 text-purple-400{% endif %}">
+                    <span class="w-2 h-2 rounded-full mr-2
                         {% if transaction.investment.is_active %}bg-green-400
-                        {% else %}bg-red-400{% endif %}"></div>
-                    {{ transaction.investment.is_active|yesno:"Active,Closed" }}
+                        {% else %}bg-purple-400{% endif %}"></span>
+                    {{ transaction.investment.is_active|yesno:"Active,Completed" }}
+                </span>
+            </div>
+        </div>
+
+        <!-- Mobile View -->
+        <div class="sm:hidden p-4 hover:bg-[#2A2A2A] border-b border-gray-700/50">
+            <div class="flex justify-between items-start mb-2">
+                <div class="text-gray-200 font-medium">{{ transaction.investment.plan.name }}</div>
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs
+                    {% if transaction.investment.is_active %}bg-green-500/20 text-green-400
+                    {% else %}bg-purple-500/20 text-purple-400{% endif %}">
+                    {{ transaction.investment.is_active|yesno:"Active,Completed" }}
+                </span>
+            </div>
+            <div class="mb-2">
+                <a href="{% url 'user:investment_details' transaction.id %}"
+                    class="text-blue-400 hover:text-blue-300 font-mono text-sm">
+                    ID: {{ transaction.id|truncatechars:12 }}
+                </a>
+            </div>
+            <div class="flex justify-between items-center text-sm">
+                <div>
+                    <div class="text-gray-400">Amount</div>
+                    <div class="text-green-400 font-medium">
+                        ${{ transaction.investment.amount|floatformat:2|intcomma }}
+                    </div>
+                </div>
+                <div>
+                    <div class="text-gray-400">Duration</div>
+                    <div class="text-gray-300">
+                        {{ transaction.investment.start_date|date:"M j" }} - {{ transaction.investment.end_date|date:"M
+                        j" }}
+                    </div>
                 </div>
             </div>
         </div>
         {% empty %}
         <div class="py-12 text-center">
-            <div class="mx-auto max-w-md px-4">
+            <div class="max-w-md mx-auto px-4">
                 <svg class="mx-auto h-16 w-16 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg>
-                <h3 class="mt-6 text-lg font-medium text-gray-200">No investments found</h3>
-                <a href="{% url 'user:plan_list' %}"
-                    class="mt-4 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
-                    Browse Plans
-                </a>
+                <h3 class="mt-4 text-lg font-semibold text-gray-200">Start Growing Your Wealth</h3>
+                <p class="mt-2 text-sm text-gray-400">No active investments found</p>
+                <div class="mt-6">
+                    <a href="{% url 'user:plan_list' %}"
+                        class="inline-flex items-center px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
+                        Explore Investment Plans
+                    </a>
+                </div>
             </div>
         </div>
         {% endfor %}

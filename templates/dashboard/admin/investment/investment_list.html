@@ -10,37 +10,99 @@ Investments
 Investments
 {% endblock page_title %}
 
+{% now "Y-m-d H:i:s" as now %}
+
 {% block content %}
-<div class="w-full">
-    <!-- Header -->
-    <div class="flex bg-blue-600 text-black p-2 rounded-t-lg">
-        <div class="flex-1 text-center">User</div>
-        <div class="flex-1 text-center">Plan</div>
-        <div class="flex-1 text-center">Amount</div>
-        <div class="flex-1 text-center">Start Date</div>
-        <div class="flex-1 text-center">End Date</div>
-        <div class="flex-1 text-center">Status</div>
+{% if messages %}
+<div class="mb-4">
+    {% for message in messages %}
+    <div class="p-4 mb-2 rounded-md text-sm font-medium
+        {% if message.tags == 'success' %}
+            bg-green-100 text-green-800
+        {% elif message.tags == 'error' %}
+            bg-red-100 text-red-800
+        {% elif message.tags == 'warning' %}
+            bg-yellow-100 text-yellow-800
+        {% else %}
+            bg-blue-100 text-blue-800
+        {% endif %}
+    ">
+        {{ message }}
     </div>
-    <!-- Rows -->
-    <div class="space-y-2">
-        {% for investment in investments %}
-        <div class="flex bg-[#2C2C2C] p-3 rounded items-center">
-            <div class="flex-1 text-center text-white">{{ investment.user.email }}</div>
-            <div class="flex-1 text-center text-white">{{ investment.plan.name }}</div>
-            <div class="flex-1 text-center text-green-500">$ {{ investment.amount|floatformat:2|intcomma }}</div>
-            <div class="flex-1 text-center text-white">{{ investment.start_date|date:"m/d/Y" }}</div>
-            <div class="flex-1 text-center text-white">{{ investment.end_date|date:"m/d/Y" }}</div>
-            <div class="flex-1 text-center text-white">
-                {% if investment.is_active %}
-                <span class="px-3 py-1 bg-green-600 rounded">Active</span>
-                {% else %}
-                <span class="px-3 py-1 bg-red-600 rounded">Inactive</span>
-                {% endif %}
-            </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+<div class="w-full overflow-x-auto">
+    <div class="min-w-[850px]">
+        <!-- Table Header -->
+        <div class="grid grid-cols-6 bg-blue-600 text-white font-semibold text-sm md:text-base p-4 rounded-t-lg">
+            <div class="text-center">User</div>
+            <div class="text-center">Plan</div>
+            <div class="text-center">Amount</div>
+            <div class="text-center">Start Date</div>
+            <div class="text-center">End Date</div>
+            <div class="text-center">Status</div>
+            <div class="text-center"></div>
         </div>
-        {% empty %}
-        <div class="text-center p-3 text-white">No investments found.</div>
-        {% endfor %}
+
+        <!-- Table Rows -->
+        <div class="space-y-2">
+            {% for investment in investments reversed %}
+            <div
+                class="grid grid-cols-7 bg-[#1F1F1F] hover:bg-[#2A2A2A] transition duration-200 text-white p-4 rounded-md items-center text-sm md:text-base">
+                <div class="text-center truncate" title="{{ investment.user.email }}">
+                    <a href="{% url 'admin:investment-detail' investment.pk %}" class="text-blue-400 hover:underline">
+                        {{ investment.user.email }}
+                    </a>
+                </div>
+
+                <div class="text-center truncate" title="{{ investment.plan.name }}">{{ investment.plan.name }}</div>
+                <div class="text-center text-green-500 font-semibold">
+                    ${{ investment.amount|floatformat:2|intcomma }}
+                </div>
+                <div class="text-center">{{ investment.start_date|date:"M d, Y" }}</div>
+                <div class="text-center">{{ investment.end_date|date:"M d, Y" }}</div>
+                <div class="text-center">
+                    {% if investment.is_active %}
+                    <span class="inline-block px-3 py-1 bg-green-600 text-xs font-medium text-white rounded-full">
+                        Active
+                    </span>
+                    {% else %}
+                    <span class="inline-block px-3 py-1 bg-red-600 text-xs font-medium text-white rounded-full">
+                        Inactive
+                    </span>
+                    {% endif %}
+                </div>
+                <div class="text-center space-x-2">
+                    {% if investment.is_active %}
+                    <form action="{% url 'admin:investment-toggle' investment.pk 'pause' %}" method="post"
+                        class="inline-block">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-yellow-500 text-white text-xs px-2 py-1 rounded">Pause</button>
+                    </form>
+                    <form action="{% url 'admin:investment-toggle' investment.pk 'stop' %}" method="post"
+                        class="inline-block">
+                        {% csrf_token %}
+                        <button type="submit" class="bg-red-600 text-white text-xs px-2 py-1 rounded">Stop</button>
+                    </form>
+                    {% elif investment.end_date < now %} <span class="text-gray-400 text-xs">Stopped</span>
+                        {% else %}
+                        <form action="{% url 'admin:investment-toggle' investment.pk 'resume' %}" method="post"
+                            class="inline-block">
+                            {% csrf_token %}
+                            <button type="submit"
+                                class="bg-green-600 text-white text-xs px-2 py-1 rounded">Resume</button>
+                        </form>
+                        {% endif %}
+                </div>
+
+            </div>
+            {% empty %}
+            <div class="text-center py-6 text-gray-300">No investments found.</div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

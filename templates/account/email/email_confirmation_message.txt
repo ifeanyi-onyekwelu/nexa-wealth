@@ -1,9 +1,9 @@
 Hey {{ user.username }}, 👋
 
-Welcome to Nexa Wealth! We’re super excited to have you join our community.
+Welcome to Hashvest Trading! We’re super excited to have you join our community.
 
 Explore, connect, and make the most of your journey with us.
 If you ever need help, we’re just a message away!
 
 Cheers,
-The Nexa Wealth Team 🚀
+The Hashvest Team 🚀

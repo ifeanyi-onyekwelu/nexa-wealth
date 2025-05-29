@@ -121,20 +121,15 @@ class Investment(models.Model):
     is_active = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
-        logging.debug("Start Here!!")
-        logging.debug("Primary Key: {}".format(self.pk))
         if self._state.adding:
             start_date = timezone.now()
-            logging.info("Start Date: {}".format(start_date))
             if self.plan.duration_unit == "MONTHS":
                 self.end_date = start_date + relativedelta(
                     months=+self.plan.duration_value
                 )
             else:
                 days = self.plan.get_duration_in_days()
-                logging.info("Days: {}".format(days))
                 self.end_date = start_date + timedelta(days=days)
-        logging.debug("Saved Here!!")
         super().save(*args, **kwargs)
 
     def __str__(self):

@@ -56,10 +56,6 @@ User - {{ user.first_name }} {{ user.last_name }}
 
         <!-- Buttons for Edit and Delete -->
         <div class="flex justify-end space-x-4 mt-5">
-            <a href="{% url 'admin:user-update' user.id %}"
-                class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                Edit Account
-            </a>
             <a href="{% url 'admin:user-delete' user.id %}"
                 class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
                 Delete Account

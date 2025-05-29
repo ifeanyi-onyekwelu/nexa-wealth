@@ -8,8 +8,8 @@ from .views import (
     InvestmentListView,
     InvestmentDetailView,
     InvestmentCreateView,
-    InvestmentUpdateView,
     InvestmentDeleteView,
+    InvestmentToggleView,
     WalletListView,
     WalletDetailView,
     WalletCreateView,
@@ -54,10 +54,11 @@ urlpatterns = [
     path(
         "investments/create/", InvestmentCreateView.as_view(), name="investment-create"
     ),
+    # urls.py
     path(
-        "investments/<uuid:pk>/update/",
-        InvestmentUpdateView.as_view(),
-        name="investment-update",
+        "investments/<uuid:pk>/<str:action>/",
+        InvestmentToggleView.as_view(),
+        name="investment-toggle",
     ),
     path(
         "investments/<uuid:pk>/delete/",

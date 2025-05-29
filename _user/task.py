@@ -5,7 +5,9 @@ from app.models import Investment, Wallet, Transaction
 
 def process_daily_profits():
     today = timezone.now().date()
-    investments = Investment.objects.filter(is_active=True)
+    investments = Investment.objects.filter(
+        is_active=True, plan__isnull=False  # Add this filter
+    )
 
     for investment in investments:
         # Check if investment is still valid

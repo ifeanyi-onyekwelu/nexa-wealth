@@ -189,174 +189,177 @@ Dashboard
     </div>
 </div>
 
-<div class="py-16 bg-gradient-to-b from-blue-50/30 to-transparent border-t-2 border-blue-600 px-6 md:px-24">
-    <div id="plans"></div>
+
+<div class="py-16 bg-gradient-to-b from-blue-900/30 via-gray-900 to-gray-900 px-6 md:px-24">
     <div class="container mx-auto px-4">
         <div class="text-center mb-16">
             <div class="inline-flex items-center gap-3 mb-4">
-                <div class="w-8 h-1 bg-blue-600 rounded-full"></div>
-                <h2 class="text-4xl font-bold text-gray-900">Staking Plans</h2>
-                <div class="w-8 h-1 bg-blue-600 rounded-full"></div>
+                <div class="w-8 h-1 bg-blue-500 rounded-full"></div>
+                <h2 class="text-4xl font-bold text-white">Premium Staking Plans</h2>
+                <div class="w-8 h-1 bg-blue-500 rounded-full"></div>
             </div>
-            <p class="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-                At Nexa Wealth Staking, we believe in
-                <span class="font-semibold text-blue-600">simplicity</span>,
-                <span class="font-semibold text-blue-600">transparency</span>, and
-                <span class="font-semibold text-blue-600">value</span>. Explore our tailored plans designed to help
-                investors of all levels
-                maximize their earnings.
+            <p class="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+                At Hashvest Staking, we believe in
+                <span class="font-semibold text-blue-400">simplicity</span>,
+                <span class="font-semibold text-blue-400">transparency</span>, and
+                <span class="font-semibold text-blue-400">maximum returns</span>. Explore our tailored plans
+                designed to help
+                investors of all levels maximize their earnings.
             </p>
         </div>
 
-        <!-- Centered CTA Button -->
-        <div class="flex flex-col items-center justify-center min-h-[400px] space-y-6">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <div class="stat-card bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 text-center">
+                <div class="text-4xl font-bold text-blue-400 mb-2">12.8%</div>
+                <div class="text-gray-400">Average APY</div>
+            </div>
+            <div class="stat-card bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 text-center">
+                <div class="text-4xl font-bold text-blue-400 mb-2">24/7</div>
+                <div class="text-gray-400">Support</div>
+            </div>
+            <div class="stat-card bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-6 text-center">
+                <div class="text-4xl font-bold text-blue-400 mb-2">99.9%</div>
+                <div class="text-gray-400">Uptime</div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div
+            class="flex flex-col items-center justify-center space-y-6 bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-2xl p-10 border border-gray-700">
             <div class="text-center max-w-2xl">
-                <h3 class="text-2xl font-semibold text-gray-400 mb-4">
+                <div class="animate-float inline-block mb-6">
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 p-4 rounded-full">
+                        <i class="fas fa-chart-line text-3xl text-white"></i>
+                    </div>
+                </div>
+                <h3 class="text-2xl md:text-3xl font-semibold text-white mb-4">
                     Discover Optimal Staking Opportunities
                 </h3>
-                <p class="text-gray-200 mb-8">
+                <p class="text-gray-300 mb-8">
                     View our comprehensive range of staking plans with detailed comparisons,
                     personalized recommendations, and real-time profitability calculations.
                 </p>
             </div>
             <a href="{% url 'user:plan_list' %}"
-                class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <span class="text-lg font-semibold">Browse All Staking Plans</span>
-                <i class="ti ti-arrow-right text-xl ml-3"></i>
+                <i class="fas fa-arrow-right text-xl ml-3"></i>
             </a>
         </div>
     </div>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-    <!-- Deposit Wallet Card -->
-    <div
-        class="group relative bg-gradient-to-br from-[#2468EF] to-[#67A2F5] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
-        <div class="space-y-6">
-            <!-- Header -->
-            <div class="flex justify-between items-start">
-                <div class="space-y-2">
-                    <div class="flex items-center gap-2">
-                        <svg class="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z">
-                            </path>
-                        </svg>
-                        <h4 class="text-sm font-semibold text-white/90 uppercase tracking-wide">Deposit Wallet</h4>
-                    </div>
-                    <p class="text-3xl font-bold text-white">${{ deposit_wallet.balance|floatformat:2|intcomma }}</p>
-                </div>
-                <div class="p-2 bg-white/10 rounded-lg backdrop-blur-sm">
-                    <span class="text-xl font-bold text-white">$</span>
-                </div>
-            </div>
+<script>
+    // Simple animation for card hover effects
+    document.querySelectorAll('.card-hover').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+        });
 
-            <!-- Progress Indicator -->
-            <div class="space-y-2">
-                <div class="flex justify-between text-sm text-white/80">
-                    <span>Total Deposits</span>
-                    <span>${{total_deposits|floatformat:2|intcomma}}</span>
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+</script>
+
+<div class="p-10 py-12 max-w-7xl mx-auto w-full">
+    <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-300 mb-4">Your Investment Portfolio</h1>
+        <p class="text-gray-400 max-w-2xl mx-auto text-lg">Manage your funds, track earnings, and explore new investment
+            opportunities</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Deposit Wallet Card -->
+        <div class="card deposit-card rounded-2xl p-6 shadow-card hover:shadow-card-hover bg-blue-500/30">
+            <div class="flex justify-between items-start mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="icon-container floating">
+                            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                                <i class="ti ti-wallet text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white/90 uppercase tracking-wide">Deposit Wallet</h4>
+                    </div>
+                    <p class="text-4xl font-bold text-white mb-2">
+                        ${{ deposit_wallet.balance|floatformat:2|intcomma }}
+                    </p>
+                    <div class="stat-badge inline-block px-3 py-1 rounded-full text-sm text-white/90">
+                        <i class="fas fa-arrow-up mr-1"></i> ${{total_deposits|floatformat:2|intcomma}} Deposited
+                    </div>
                 </div>
-                <div class="h-1.5 bg-white/20 rounded-full overflow-hidden">
-                    <div class="w-3/4 h-full bg-white/40"></div>
+                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                    <span class="text-xl font-bold text-white">$</span>
                 </div>
             </div>
 
             <!-- CTA -->
             <a href="{% url 'user:deposit_methods' %}"
-                class="inline-flex items-center justify-center w-full py-3 px-6 font-semibold text-[#2468EF] bg-white hover:bg-gray-100 rounded-lg transition-all duration-300 transform group-hover:scale-[1.02]">
+                class="bg-blue-500/50 inline-flex items-center justify-center w-full py-4 px-6 font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.03]">
                 Add Funds
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                </svg>
+                <i class="fas fa-plus ml-3"></i>
             </a>
         </div>
-    </div>
 
-    <!-- Interest Wallet Card -->
-    <div
-        class="group relative bg-gradient-to-br from-[#2468EF] to-[#67A2F5] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
-        <div class="space-y-6">
-            <div class="flex justify-between items-start">
-                <div class="space-y-2">
-                    <div class="flex items-center gap-2">
-                        <svg class="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 7h3l2 4m0 0l-3 4m3-4H8m3 4l-3 4m3-4h3M3 5h18v12a2 2 0 01-2 2H5a2 2 0 01-2-2V5z">
-                            </path>
-                        </svg>
-                        <h4 class="text-sm font-semibold text-white/90 uppercase tracking-wide">Interest Wallet</h4>
+        <!-- Interest Wallet Card -->
+        <div class="card interest-card rounded-2xl p-6 shadow-card hover:shadow-card-hover bg-blue-500/30">
+            <div class="flex justify-between items-start mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="icon-container floating">
+                            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                                <i class="ti ti-moneybag text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white/90 uppercase tracking-wide">Interest Wallet</h4>
                     </div>
-                    <p class="text-3xl font-bold text-white">${{interest_wallet.balance|floatformat:2|intcomma}}</p>
+                    <p class="text-4xl font-bold text-white mb-2">
+                        ${{interest_wallet.balance|floatformat:2|intcomma}}
+                    </p>
                 </div>
-                <div class="p-2 bg-white/10 rounded-lg backdrop-blur-sm">
+                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
                     <span class="text-xl font-bold text-white">$</span>
-                </div>
-            </div>
-
-            <!-- Withdrawal Info -->
-            <div class="space-y-2">
-                <div class="flex justify-between text-sm text-white/80">
-                    <span>Total Withdrawn</span>
-                    <span>${{total_withdrawals|floatformat:2|intcomma}}</span>
-                </div>
-                <div class="h-1.5 bg-white/20 rounded-full overflow-hidden">
-                    <div class="w-1/2 h-full bg-white/40"></div>
                 </div>
             </div>
 
             <!-- CTA -->
             <a href="{% url 'user:withdrawal_methods' %}"
-                class="inline-flex items-center justify-center w-full py-3 px-6 font-semibold text-[#2468EF] bg-white hover:bg-gray-100 rounded-lg transition-all duration-300 transform group-hover:scale-[1.02]">
+                class="bg-blue-500/50 inline-flex items-center justify-center w-full py-4 px-6 font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.03]">
                 Withdraw Funds
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17 13l-5 5m0 0l-5-5m5 5V6"></path>
-                </svg>
+                <i class="fas fa-arrow-right ml-3"></i>
             </a>
         </div>
-    </div>
 
-    <!-- Total Invested Card -->
-    <div
-        class="group relative bg-gradient-to-br from-[#2468EF] to-[#67A2F5] rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
-        <div class="space-y-6">
-            <div class="flex justify-between items-start">
-                <div class="space-y-2">
-                    <div class="flex items-center gap-2">
-                        <svg class="w-6 h-6 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                        <h4 class="text-sm font-semibold text-white/90 uppercase tracking-wide">Total Invested</h4>
+        <!-- Total Invested Card -->
+        <div class="card invested-card rounded-2xl p-6 shadow-card hover:shadow-card-hover bg-blue-500/30">
+            <div class="flex justify-between items-start mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="icon-container floating">
+                            <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                                <i class="ti ti-chart-bar text-white text-xl"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white/90 uppercase tracking-wide">Total Invested</h4>
                     </div>
-                    <p class="text-3xl font-bold text-white">${{total_investment|floatformat:2|intcomma}}</p>
+                    <p class="text-4xl font-bold text-white mb-2">
+                        ${{total_investment|floatformat:2|intcomma}}
+                    </p>
+                    <div class="stat-badge inline-block px-3 py-1 rounded-full text-sm text-white/90">
+                        <i class="fas fa-trophy mr-1"></i> {{active_investments}} active plans
+                    </div>
                 </div>
-                <div class="p-2 bg-white/10 rounded-lg backdrop-blur-sm">
+                <div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
                     <span class="text-xl font-bold text-white">$</span>
                 </div>
             </div>
 
-            <!-- Promo Info -->
-            <div class="space-y-2">
-                <div class="flex justify-between text-sm text-white/80">
-                    <span>Available Offers</span>
-                    <span>$0</span>
-                </div>
-                <div class="h-1.5 bg-white/20 rounded-full overflow-hidden">
-                    <div class="w-1/4 h-full bg-white/40"></div>
-                </div>
-            </div>
-
-            <!-- CTA -->
             <a href="{% url 'user:plan_list' %}"
-                class="inline-flex items-center justify-center w-full py-3 px-6 font-semibold text-[#2468EF] bg-white hover:bg-gray-100 rounded-lg transition-all duration-300 transform group-hover:scale-[1.02]">
+                class="bg-blue-500/50 inline-flex items-center justify-center w-full py-4 px-6 font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.03]">
                 View Offers
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 13l-3 3m0 0l-3-3m3 3V8m0 13a9 9 0 110-18 9 9 0 010 18z"></path>
-                </svg>
+                <i class="fas fa-gift ml-3"></i>
             </a>
         </div>
     </div>

@@ -7,72 +7,83 @@
 
 {% block content %}
 {% include './shared/transactionsTab.html' %}
-<div class="w-full overflow-x-auto rounded-lg shadow-xl">
-    <!-- Header -->
+
+<div class="border border-gray-700 rounded-xl bg-[#1E1E1E] overflow-hidden">
+    <!-- Desktop Header -->
     <div
-        class="grid grid-cols-6 gap-4 bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-4 text-sm font-semibold text-white">
+        class="hidden sm:grid grid-cols-5 gap-4 bg-gradient-to-r from-blue-600/80 to-blue-500/80 px-6 py-3 text-sm font-semibold text-white">
         <div>Date</div>
         <div class="text-center">ID</div>
-        <div class="text-center">Details</div>
+        <div class="text-center">Method</div>
         <div class="text-center">Amount</div>
         <div class="text-center">Status</div>
-        <div class="text-end">Balance</div>
     </div>
 
-    <!-- Body -->
-    <div class="divide-y divide-gray-700/50 bg-[#1E1E1E]">
-        {% for withdrawal in withdrawals %}
-        <div class="grid grid-cols-6 gap-4 px-6 py-4 transition-colors hover:bg-[#2A2A2A]">
-            <!-- Date -->
-            <div class="text-gray-300">{{ withdrawal.timestamp|date:"m/d/Y" }}</div>
-
-            <!-- ID -->
-            <div class="text-center">
-                <a href="{% url 'user:withdrawal_details' withdrawal.id %}"
-                    class="font-mono text-sm text-blue-400 hover:text-blue-300">
-                    {{ withdrawal.id|truncatechars:8 }}
-                </a>
+    <div class="divide-y divide-gray-700/50">
+        {% for withdrawal in withdrawals reversed %}
+        <!-- Desktop View -->
+        <div class="hidden sm:grid grid-cols-5 gap-4 px-6 py-3 hover:bg-[#2A2A2A] transition-colors">
+            <div class="text-gray-300 text-sm">{{ withdrawal.timestamp|date:"M j, Y" }}</div>
+            <div class="text-center font-mono text-blue-400 hover:text-blue-300">
+                <a href="{% url 'user:withdrawal_details' withdrawal.id %}">{{ withdrawal.id|truncatechars:10 }}</a>
             </div>
-
-            <!-- Details -->
-            <div class="text-center text-gray-400 text-sm">{{ withdrawal.details|truncatechars:20 }}</div>
-
-            <!-- Amount -->
+            <div class="text-center text-gray-400 text-sm">{{ withdrawal.method|default:"-"|truncatechars:15 }}</div>
             <div class="text-center text-red-400 font-medium">
                 -${{ withdrawal.amount|floatformat:2|intcomma }}
             </div>
-
-            <!-- Status -->
             <div class="text-center">
-                <div class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm
                     {% if withdrawal.status == 'PENDING' %}bg-yellow-500/20 text-yellow-400
                     {% elif withdrawal.status == 'APPROVED' %}bg-green-500/20 text-green-400
                     {% else %}bg-gray-500/20 text-gray-400{% endif %}">
-                    <div class="h-2 w-2 rounded-full mr-2
+                    <span class="w-2 h-2 rounded-full mr-2
                         {% if withdrawal.status == 'PENDING' %}bg-yellow-400
                         {% elif withdrawal.status == 'APPROVED' %}bg-green-400
-                        {% else %}bg-gray-400{% endif %}"></div>
+                        {% else %}bg-gray-400{% endif %}"></span>
                     {{ withdrawal.get_status_display }}
-                </div>
+                </span>
             </div>
+        </div>
 
-            <!-- Balance -->
-            <div class="text-end font-mono text-sm text-gray-300">
-                ${{ wallet.balance|floatformat:2|intcomma }} <span class="text-xs text-gray-400">USD</span>
+        <!-- Mobile View -->
+        <div class="sm:hidden p-4 hover:bg-[#2A2A2A] border-b border-gray-700/50">
+            <div class="flex justify-between items-start mb-2">
+                <div class="text-sm text-gray-300">{{ withdrawal.timestamp|date:"M j, Y" }}</div>
+                <span class="text-red-400 font-medium">
+                    -${{ withdrawal.amount|floatformat:2|intcomma }}
+                </span>
+            </div>
+            <div class="mb-2">
+                <a href="{% url 'user:withdrawal_details' withdrawal.id %}"
+                    class="text-blue-400 hover:text-blue-300 font-mono text-sm">
+                    ID: {{ withdrawal.id|truncatechars:12 }}
+                </a>
+            </div>
+            <div class="flex justify-between items-center text-sm">
+                <div class="text-gray-400">{{ withdrawal.method|default:"No method specified" }}</div>
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs
+                    {% if withdrawal.status == 'PENDING' %}bg-yellow-500/20 text-yellow-400
+                    {% elif withdrawal.status == 'APPROVED' %}bg-green-500/20 text-green-400
+                    {% else %}bg-gray-500/20 text-gray-400{% endif %}">
+                    {{ withdrawal.get_status_display }}
+                </span>
             </div>
         </div>
         {% empty %}
         <div class="py-12 text-center">
-            <div class="mx-auto max-w-md px-4">
+            <div class="max-w-md mx-auto px-4">
                 <svg class="mx-auto h-16 w-16 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
-                <h3 class="mt-6 text-lg font-medium text-gray-200">No withdrawals found</h3>
-                <a href="{% url 'user:withdrawal_methods' %}"
-                    class="mt-4 inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors">
-                    Request Withdrawal
-                </a>
+                <h3 class="mt-4 text-lg font-semibold text-gray-200">No withdrawal history</h3>
+                <p class="mt-2 text-sm text-gray-400">Your withdrawal requests will appear here</p>
+                <div class="mt-6">
+                    <a href="{% url 'user:withdrawal_methods' %}"
+                        class="inline-flex items-center px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
+                        Request Withdrawal
+                    </a>
+                </div>
             </div>
         </div>
         {% endfor %}

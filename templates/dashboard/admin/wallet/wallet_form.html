@@ -1,1 +1,48 @@
 {% extends '../shared/_base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+Update Wallet Balance
+{% endblock title %}
+
+{% block page_title %}
+Update Wallet Balance
+{% endblock page_title %}
+
+{% block content %}
+<div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md text-black mt-6">
+    <h2 class="text-3xl font-semibold mb-6 text-primary text-center">Update Wallet Balance</h2>
+
+    <div class="mb-4 text-sm text-gray-600 text-center">
+        <p><strong>User:</strong> {{ object.user.email }}</p>
+        <p><strong>Wallet Type:</strong> {{ object.get_wallet_type_display }}</p>
+    </div>
+
+    <form method="post" class="space-y-5">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        {% for field in form %}
+        <div>
+            <label for="{{ field.id_for_label }}" class="block text-sm font-medium text-gray-700 mb-1">
+                {{ field.label }}
+            </label>
+            {{ field }}
+            {% if field.errors %}
+            <p class="text-red-500 text-sm mt-1">{{ field.errors|join:", " }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <div class="pt-4 flex justify-between items-center">
+            <a href="{% url 'admin:wallet-list' %}" class="text-blue-600 hover:underline text-sm">
+                ← Back to Wallet List
+            </a>
+            <button type="submit" class="bg-blue-800 text-white py-2 px-6 rounded-md hover:bg-blue-700 transition">
+                Update
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

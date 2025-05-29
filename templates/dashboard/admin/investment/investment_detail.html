@@ -3,67 +3,99 @@
 {% load humanize %}
 
 {% block title %}
-User - {{ investment.user.first_name }} {{ investment.user.last_name }}
+Investment - {{ investment.user.get_full_name }}
 {% endblock title %}
 
 {% block page_title %}
-User - {{ investment.user.first_name }} {{ investment.user.last_name }}
+Investment Details - {{ investment.user.get_full_name }}
 {% endblock page_title %}
 
+{% now "Y-m-d H:i:s" as now %}
+
 {% block content %}
-<div class="bg-[#2C2C2C] w-full p-5 rounded-sm">
-    <div class="space-y-5">
-        <p class="flex justify-between">
-            <span class="text-gray-600">Investment ID:</span>
+<div class="bg-[#1E1E1E] text-white w-full p-6 rounded-lg shadow-md">
+    <h2 class="text-xl font-semibold mb-6">Investment Summary</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-base">
+        <div class="flex justify-between">
+            <span class="text-gray-400">Investment ID:</span>
             <span class="font-medium">{{ investment.id }}</span>
-        </p>
-        <p class="flex justify-between">
-            <span class="text-gray-600">User:</span>
+        </div>
+        <div class="flex justify-between">
+            <span class="text-gray-400">User:</span>
             <span class="font-medium">{{ investment.user }}</span>
-        </p>
-        <p class="flex justify-between">
-            <span class="text-gray-600">Plan:</span>
+        </div>
+        <div class="flex justify-between">
+            <span class="text-gray-400">Plan:</span>
             <span class="font-medium">{{ investment.plan }}</span>
-        </p>
-        <p class="flex justify-between">
-            <span class="text-gray-600">Wallet:</span>
+        </div>
+        <div class="flex justify-between">
+            <span class="text-gray-400">Wallet:</span>
             <span class="font-medium">{{ investment.wallet }}</span>
-        </p>
-        <p class="flex justify-between">
-            <span class="text-gray-600">Amount:</span>
-            <span class="font-medium">${{ investment.amount }}</span>
-        </p>
-        <p class="flex justify-between">
-            <span class="text-gray-600">Start Date:</span>
-            <span class="font-medium">{{ investment.start_date }}</span>
-        </p>
-        <p class="flex justify-between">
-            <span class="text-gray-600">End Date:</span>
-            <span class="font-medium">{{ investment.end_date }}</span>
-        </p>
-        <p class="flex justify-between">
-            <span class="text-gray-600">Status:</span>
+        </div>
+        <div class="flex justify-between">
+            <span class="text-gray-400">Amount:</span>
+            <span class="font-medium text-green-400">${{ investment.amount|floatformat:2|intcomma }}</span>
+        </div>
+        <div class="flex justify-between">
+            <span class="text-gray-400">Start Date:</span>
+            <span class="font-medium">{{ investment.start_date|date:"M d, Y" }}</span>
+        </div>
+        <div class="flex justify-between">
+            <span class="text-gray-400">End Date:</span>
+            <span class="font-medium">{{ investment.end_date|date:"M d, Y" }}</span>
+        </div>
+        <div class="flex justify-between">
+            <span class="text-gray-400">Status:</span>
             <span class="font-medium">
                 {% if investment.is_active %}
-                <span class="text-green-500">Active</span>
+                <span class="text-green-500 font-semibold">Active</span>
                 {% else %}
-                <span class="text-red-500">Inactive</span>
+                <span class="text-red-500 font-semibold">Inactive</span>
                 {% endif %}
             </span>
-        </p>
+        </div>
+    </div>
 
-        <!-- Buttons for Edit and Delete -->
-        <div class="flex justify-end space-x-4 mt-5">
-            <a href="{% url 'admin:investment-update' investment.id %}"
-                class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                Edit Investment
-            </a>
+    <!-- Actions -->
+    <div class="mt-8 flex flex-col md:flex-row md:justify-between space-y-4 md:space-y-0 md:space-x-4">
+        <!-- Toggle Controls -->
+        <div class="flex space-x-3">
+            {% if investment.is_active %}
+            <form action="{% url 'admin:investment-toggle' investment.pk 'pause' %}" method="post">
+                {% csrf_token %}
+                <button type="submit"
+                    class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md text-sm font-medium">
+                    Pause
+                </button>
+            </form>
+            <form action="{% url 'admin:investment-toggle' investment.pk 'stop' %}" method="post">
+                {% csrf_token %}
+                <button type="submit"
+                    class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                    Stop
+                </button>
+            </form>
+            {% elif investment.end_date < now %} <span class="text-gray-400 text-sm">Stopped</span>
+                {% else %}
+                <form action="{% url 'admin:investment-toggle' investment.pk 'resume' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit"
+                        class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                        Resume
+                    </button>
+                </form>
+                {% endif %}
+        </div>
+
+        <!-- Edit/Delete Buttons -->
+        <div class="flex space-x-3 justify-end">
+
             <a href="{% url 'admin:investment-delete' investment.id %}"
-                class="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
+                class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium">
                 Delete Investment
             </a>
         </div>
     </div>
 </div>
-
 {% endblock content %}

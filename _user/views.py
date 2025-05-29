@@ -85,6 +85,9 @@ class DashboardView(LoginRequiredMixin, TemplateView):
 
         # Investments
         context["investments"] = Investment.objects.filter(user=self.request.user)
+        context["active_investments"] = Investment.objects.filter(
+            user=self.request.user, is_active=True
+        ).count()
 
         context["REFERRAL_LINK"] = (
             os.getenv("APP_URL") + f"/accounts/signup/?ref={self.request.user.username}"

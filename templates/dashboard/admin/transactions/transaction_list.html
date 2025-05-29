@@ -26,7 +26,7 @@ Transactions
         </div>
 
         <!-- Rows -->
-        {% for transaction in transactions %}
+        {% for transaction in transactions reversed %}
         <div
             class="grid grid-cols-6 md:grid-cols-6 bg-slate-800 hover:bg-slate-700 transition rounded px-4 py-3 text-sm items-center">
             <div class="text-center text-white truncate"><a href="{% url 'admin:transaction-detail' transaction.id %}"

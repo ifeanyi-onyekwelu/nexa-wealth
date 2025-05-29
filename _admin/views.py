@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth import login, authenticate
 from django.urls import reverse_lazy
 from django.views.generic import (
@@ -9,6 +9,7 @@ from django.views.generic import (
     DeleteView,
     FormView,
     TemplateView,
+    View,
 )
 from app.models import Investment, Wallet, Transaction, DepositMethod, Plan, Mining
 from users.models import CustomUser
@@ -18,7 +19,7 @@ from .forms import (
     DepositMethodForm,
     TransactionActionForm,
 )
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
 from django.core.mail import EmailMessage
@@ -111,17 +112,35 @@ class InvestmentCreateView(CreateView):
     success_url = reverse_lazy("investment-list")
 
 
-class InvestmentUpdateView(UpdateView):
-    model = Investment
-    template_name = f"{template_url}/investment/investment_form.html"
-    fields = "__all__"
-    success_url = reverse_lazy("investment-list")
-
-
 class InvestmentDeleteView(DeleteView):
     model = Investment
     template_name = f"{template_url}/investment_confirm_delete.html"
     success_url = reverse_lazy("investment-list")
+
+
+class InvestmentToggleView(View):
+    def post(self, request, pk, action):
+        investment = get_object_or_404(Investment, pk=pk)
+
+        if action == "pause":
+            investment.is_active = False
+            messages.success(request, "Investment paused successfully.")
+        elif action == "resume":
+            if timezone.now() >= investment.end_date:
+                messages.error(request, "Investment has ended and cannot be resumed.")
+                return redirect(reverse("admin:investment-list"))
+            investment.is_active = True
+            messages.success(request, "Investment resumed successfully.")
+        elif action == "stop":
+            investment.is_active = False
+            investment.end_date = timezone.now()
+            messages.success(request, "Investment stopped successfully.")
+        else:
+            messages.error(request, "Invalid action.")
+            return redirect(reverse("admin:investment-list"))
+
+        investment.save()
+        return redirect(reverse("admin:investment-list"))
 
 
 class WalletListView(ListView):
@@ -145,9 +164,9 @@ class WalletCreateView(CreateView):
 
 class WalletUpdateView(UpdateView):
     model = Wallet
+    fields = ["balance"]
     template_name = f"{template_url}/wallet/wallet_form.html"
-    fields = "__all__"
-    success_url = reverse_lazy("wallet-list")
+    success_url = reverse_lazy("admin:wallet-list")
 
 
 class WalletDeleteView(DeleteView):
